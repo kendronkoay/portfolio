@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dr. Kendron Koay | Medical Graduate & Digital Portfolio</title>
+    <title>Dr Kendron Koay | Medical Graduate &amp; Digital Portfolio</title>
     
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -32,7 +32,7 @@
                             300: '#7dd3fc',
                             400: '#38bdf8',
                             500: '#0ea5e9',
-                            600: '#0284c7', // Primary Accent
+                            600: '#0284c7', // Scenario 1 & Primary Accent
                             700: '#0369a1',
                             800: '#075985',
                             900: '#0c4a6e', // Deep Hospital Navy
@@ -41,6 +41,7 @@
                     },
                     boxShadow: {
                         'soft': '0 10px 30px -5px rgba(2, 132, 199, 0.07)',
+                        'soft-gold': '0 10px 30px -5px rgba(245, 158, 11, 0.12)',
                         'card': '0 4px 16px -2px rgba(15, 23, 42, 0.05)',
                         'floating': '0 20px 35px -8px rgba(12, 74, 110, 0.12)',
                     }
@@ -62,14 +63,18 @@
             letter-spacing: -0.015em;
         }
 
+        /* Clean Justified Alignment without mid-word hyphen breaks */
         .text-justify-clinical {
             text-align: justify;
             text-justify: inter-word;
-            hyphens: auto;
+            hyphens: none;
+            -webkit-hyphens: none;
+            -ms-hyphens: none;
+            word-break: normal;
         }
 
         .glass-nav {
-            background: rgba(255, 255, 255, 0.94);
+            background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(14px);
             -webkit-backdrop-filter: blur(14px);
             border-bottom: 1px solid rgba(226, 232, 240, 0.9);
@@ -98,6 +103,14 @@
             box-shadow: 0 16px 30px -6px rgba(2, 132, 199, 0.12);
         }
 
+        .hover-lift-gold {
+            transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s ease;
+        }
+        .hover-lift-gold:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 16px 30px -6px rgba(245, 158, 11, 0.15);
+        }
+
         /* Subtle scroll animations */
         .reveal {
             opacity: 0;
@@ -118,25 +131,28 @@
 </head>
 <body class="selection:bg-clinical-500 selection:text-white antialiased">
 
+    <!-- UNIFIED & CONSISTENT NAVIGATION BAR -->
     <nav class="fixed top-0 left-0 right-0 glass-nav z-50 transition-all duration-300" id="mainNav">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-20 items-center">
+                <!-- Brand Identity -->
                 <div class="flex items-center gap-3 cursor-pointer" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
                     <div class="w-11 h-11 bg-clinical-900 text-white rounded-xl flex items-center justify-center font-heading font-bold text-lg shadow-md border border-clinical-700">
                         KK
                     </div>
                     <div>
-                        <span class="font-bold text-base md:text-lg tracking-tight text-slate-900 font-heading block leading-tight">Dr. Kendron Koay</span>
-                        <span class="text-[11px] font-semibold text-clinical-600 tracking-wider uppercase">Medical Portfolio</span>
+                        <span class="font-bold text-base md:text-lg tracking-tight text-slate-900 font-heading block leading-tight">Dr Kendron Koay</span>
+                        <span class="text-[11px] font-semibold text-clinical-600 tracking-wider uppercase font-heading">Medical Portfolio</span>
                     </div>
                 </div>
 
-                <!-- Desktop Menu -->
-                <div class="hidden lg:flex space-x-7 text-xs font-semibold uppercase tracking-wider items-center font-heading">
+                <!-- Desktop Menu (100% Uniform Typography, Colour & Spacing) -->
+                <div class="hidden lg:flex items-center space-x-7 text-xs font-semibold uppercase tracking-wider font-heading">
                     <a href="#about" class="text-slate-600 hover:text-clinical-700 transition-colors">Profile</a>
                     <a href="#education" class="text-slate-600 hover:text-clinical-700 transition-colors">Education</a>
                     <a href="#workshops" class="text-slate-600 hover:text-clinical-700 transition-colors">Workshops</a>
-                    <a href="#kydp" class="text-slate-600 hover:text-clinical-700 transition-colors">KYDP Portfolio</a>
+                    <a href="#kydp-s1" class="text-slate-600 hover:text-clinical-700 transition-colors">KYDP Scenario 1</a>
+                    <a href="#kydp-s2" class="text-slate-600 hover:text-clinical-700 transition-colors">KYDP Scenario 2</a>
                     <a href="#contact" class="px-5 py-2.5 bg-clinical-900 text-white hover:bg-clinical-800 rounded-full transition-all shadow-sm hover:shadow border border-clinical-700 flex items-center gap-2">
                         <i class="fa-solid fa-envelope text-[10px] text-clinical-300"></i> Contact
                     </a>
@@ -151,16 +167,18 @@
             </div>
         </div>
 
-        <!-- Mobile Drawer -->
+        <!-- Mobile Drawer (Uniform Links) -->
         <div id="mobile-drawer" class="hidden lg:hidden bg-white border-t border-slate-200 px-6 pt-4 pb-6 space-y-3 font-heading text-sm font-semibold shadow-xl">
             <a href="#about" class="block py-2 text-slate-700 hover:text-clinical-600">Profile</a>
             <a href="#education" class="block py-2 text-slate-700 hover:text-clinical-600">Education Journey</a>
-            <a href="#workshops" class="block py-2 text-slate-700 hover:text-clinical-600">Workshops & Exchange</a>
-            <a href="#kydp" class="block py-2 text-slate-700 hover:text-clinical-600">KYDP Scenario 1</a>
+            <a href="#workshops" class="block py-2 text-slate-700 hover:text-clinical-600">Workshops &amp; Exchange</a>
+            <a href="#kydp-s1" class="block py-2 text-slate-700 hover:text-clinical-600">KYDP Scenario 1</a>
+            <a href="#kydp-s2" class="block py-2 text-slate-700 hover:text-clinical-600">KYDP Scenario 2</a>
             <a href="#contact" class="block py-2.5 text-center bg-clinical-900 text-white rounded-xl">Contact Me</a>
         </div>
     </nav>
 
+    <!-- HERO / PROFILE SECTION -->
     <section id="about" class="pt-32 pb-20 lg:pt-44 lg:pb-28 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto min-h-[92vh] flex items-center relative">
         <div class="absolute -top-12 right-0 w-96 h-96 bg-clinical-100/60 rounded-full filter blur-3xl -z-10 pointer-events-none"></div>
 
@@ -170,48 +188,55 @@
             <div class="lg:col-span-7 text-center lg:text-left reveal active">
                 <div class="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-clinical-50 border border-clinical-200 text-clinical-800 text-xs font-bold font-heading mb-6 uppercase tracking-wider shadow-xs">
                     <span class="w-2 h-2 rounded-full bg-clinical-500 animate-pulse"></span>
-                    Prospective House Officer &bull; KKM Aspirant
+                    Prospective House Officer &bull; Ministry of Health Malaysia (MOH)
                 </div>
                 
                 <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-slate-900 tracking-tight leading-tight mb-3">
-                    Dr. Kendron Koay
+                    Dr Kendron Koay
                 </h1>
                 
-                <h2 class="text-sm md:text-base font-bold text-clinical-700 font-heading tracking-[0.16em] uppercase mb-6 flex items-center justify-center lg:justify-start gap-2">
+                <h2 class="text-sm md:text-base font-bold text-clinical-700 font-heading tracking-[0.14em] uppercase mb-6 flex flex-wrap items-center justify-center lg:justify-start gap-2">
                     <span>Medical Graduate</span>
                     <span class="text-clinical-300">&bull;</span>
                     <span>MD (UNIMAS)</span>
                     <span class="text-clinical-300">&bull;</span>
-                    <span>First Class Honours</span>
+                    <span>First Class Honours (3.76 CGPA)</span>
                 </h2>
 
                 <p class="text-slate-600 text-base md:text-lg text-justify-clinical leading-relaxed mb-8 max-w-2xl mx-auto lg:mx-0 font-normal">
-                    Medical graduate from Universiti Malaysia Sarawak (UNIMAS) with sustained academic distinction and rigorous clinical exposure across tertiary, district, and community care settings. Highly motivated to commence housemanship training with the Ministry of Health Malaysia (KKM), demonstrating sharp diagnostic reasoning, structured ward communication, and versatile adaptability refined through clinical medicine and corporate strategic training.
+                    Medical graduate from Universiti Malaysia Sarawak (UNIMAS) with sustained academic distinction (3.76 CGPA) and rigorous clinical exposure across tertiary, district, and community care settings. Highly motivated to commence housemanship training with the Ministry of Health Malaysia (MOH), demonstrating sharp diagnostic reasoning, structured ward communication, and versatile adaptability refined through clinical medicine and corporate strategic training.
                 </p>
 
-                <!-- Core Highlights Pills -->
-                <div class="grid grid-cols-2 sm:grid-cols-3 gap-3 mb-8 max-w-xl mx-auto lg:mx-0 text-left">
-                    <div class="bg-white p-3 rounded-xl border border-slate-200 shadow-card">
+                <!-- Core Highlights Pills (4 Balanced Metrics) -->
+                <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-8 max-w-2xl mx-auto lg:mx-0 text-left">
+                    <div class="bg-white p-3.5 rounded-xl border border-slate-200 shadow-card">
+                        <div class="text-clinical-700 font-heading font-extrabold text-lg">3.76 CGPA</div>
+                        <div class="text-[11px] font-semibold text-slate-500 uppercase">First Class Honours</div>
+                    </div>
+                    <div class="bg-white p-3.5 rounded-xl border border-slate-200 shadow-card">
+                        <div class="text-clinical-700 font-heading font-extrabold text-lg">Dean's List</div>
+                        <div class="text-[11px] font-semibold text-slate-500 uppercase">All Semesters</div>
+                    </div>
+                    <div class="bg-white p-3.5 rounded-xl border border-slate-200 shadow-card">
                         <div class="text-clinical-700 font-heading font-extrabold text-lg">Pro Exam 1</div>
                         <div class="text-[11px] font-semibold text-slate-500 uppercase">Distinction Honours</div>
                     </div>
-                    <div class="bg-white p-3 rounded-xl border border-slate-200 shadow-card">
-                        <div class="text-clinical-700 font-heading font-extrabold text-lg">First Class</div>
-                        <div class="text-[11px] font-semibold text-slate-500 uppercase">All Semesters</div>
-                    </div>
-                    <div class="bg-white p-3 rounded-xl border border-slate-200 shadow-card col-span-2 sm:col-span-1">
+                    <div class="bg-white p-3.5 rounded-xl border border-slate-200 shadow-card">
                         <div class="text-clinical-700 font-heading font-extrabold text-lg">4.00 CGPA</div>
-                        <div class="text-[11px] font-semibold text-slate-500 uppercase">Matrikulasi Johor</div>
+                        <div class="text-[11px] font-semibold text-slate-500 uppercase">Johor Matriculation</div>
                     </div>
                 </div>
 
                 <!-- Action CTA Buttons -->
-                <div class="flex flex-wrap items-center justify-center lg:justify-start gap-4">
+                <div class="flex flex-wrap items-center justify-center lg:justify-start gap-3.5">
                     <a href="#education" class="px-6 py-3 bg-clinical-900 hover:bg-clinical-800 text-white font-heading font-bold text-xs uppercase tracking-wider rounded-xl transition-all shadow-md flex items-center gap-2">
                         <i class="fa-solid fa-graduation-cap"></i> Education Journey
                     </a>
-                    <a href="#kydp" class="px-6 py-3 bg-white hover:bg-clinical-50 text-clinical-900 border border-slate-300 font-heading font-bold text-xs uppercase tracking-wider rounded-xl transition-all shadow-card flex items-center gap-2">
+                    <a href="#kydp-s1" class="px-6 py-3 bg-white hover:bg-clinical-50 text-clinical-900 border border-slate-300 font-heading font-bold text-xs uppercase tracking-wider rounded-xl transition-all shadow-card flex items-center gap-2">
                         <i class="fa-solid fa-folder-tree text-clinical-600"></i> KYDP Scenario 1
+                    </a>
+                    <a href="#kydp-s2" class="px-6 py-3 bg-white hover:bg-amber-50 text-slate-900 border border-slate-300 font-heading font-bold text-xs uppercase tracking-wider rounded-xl transition-all shadow-card flex items-center gap-2">
+                        <i class="fa-solid fa-briefcase text-amber-500"></i> KYDP Scenario 2
                     </a>
                 </div>
             </div>
@@ -222,11 +247,11 @@
                     <div class="absolute inset-0 bg-clinical-200/50 rounded-3xl transform rotate-2 -z-10"></div>
                     <div class="relative bg-white p-3.5 rounded-3xl border border-slate-200 shadow-floating overflow-hidden">
                         <div class="aspect-[3/4] w-full rounded-2xl overflow-hidden bg-slate-100 relative group">
-                            <img src="IMG_20260821_174246.jpg" alt="Dr. Kendron Koay">
-                            <div class="absolute inset-0 bg-gradient-to-t from-slate-900/60 via-transparent to-transparent opacity-80"></div>
+                            <img src="IMG_20260821_174246.jpg" alt="Dr Kendron Koay" class="w-full h-full object-cover">
+                            <div class="absolute inset-0 bg-gradient-to-t from-slate-900/65 via-transparent to-transparent opacity-85"></div>
                             <div class="absolute bottom-4 left-4 right-4 text-white">
-                                <span class="text-xs uppercase font-heading font-bold tracking-widest text-clinical-200">Doctor of Medicine (MD)</span>
-                                <h3 class="text-lg font-bold font-heading">Faculty of Medicine & Health Sciences</h3>
+                                <span class="text-xs uppercase font-heading font-bold tracking-widest text-clinical-200">Doctor of Medicine (MD) &bull; CGPA 3.76</span>
+                                <h3 class="text-lg font-bold font-heading">Faculty of Medicine &amp; Health Sciences</h3>
                                 <p class="text-xs text-slate-200">Universiti Malaysia Sarawak (UNIMAS)</p>
                             </div>
                         </div>
@@ -237,15 +262,16 @@
         </div>
     </section>
 
+    <!-- EDUCATION SECTION -->
     <section id="education" class="py-24 bg-white border-y border-slate-200">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-3xl mx-auto mb-16 reveal">
                 <span class="text-xs font-bold text-clinical-600 uppercase tracking-widest font-heading block mb-2">Formal Qualifications</span>
-                <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight font-heading">Education & Academic Journey</h2>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight font-heading">Education &amp; Academic Journey</h2>
                 <div class="w-16 h-1 bg-clinical-600 mx-auto mt-4 rounded-full"></div>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-12 gap-8">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-stretch">
                 
                 <!-- UNIMAS Medical Degree -->
                 <div class="md:col-span-12 bg-slate-50 border border-slate-200 rounded-2xl p-7 md:p-9 shadow-card hover-lift reveal">
@@ -265,16 +291,19 @@
                     </div>
 
                     <p class="text-slate-600 text-sm md:text-base text-justify-clinical leading-relaxed mb-6">
-                        Underwent 5 years of comprehensive medical curriculum comprising 2 pre-clinical years of anatomy, physiology, and pathology followed by 3 years of rigorous hospital rotations across tertiary and district healthcare networks. Consistent academic standout with honours.
+                        Underwent five years of a comprehensive medical curriculum comprising two pre-clinical years of foundational anatomy, physiology, and pathology followed by three years of rigorous hospital rotations across tertiary and district healthcare networks. Achieved the Dean's List across all academic semesters and graduated with First Class Honours (3.76 CGPA).
                     </p>
 
                     <!-- Honour Tags -->
                     <div class="flex flex-wrap gap-3">
-                        <span class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-amber-50 text-amber-900 border border-amber-200 text-xs font-bold font-heading">
-                            <i class="fa-solid fa-medal text-amber-600"></i> Distinction in Final Professional Examination 1
+                        <span class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-emerald-50 text-emerald-900 border border-emerald-200 text-xs font-bold font-heading">
+                            <i class="fa-solid fa-award text-emerald-600"></i> First Class Honours (3.76 CGPA)
                         </span>
                         <span class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-sky-50 text-sky-900 border border-sky-200 text-xs font-bold font-heading">
-                            <i class="fa-solid fa-star text-sky-600"></i> First Class Honours (All Semesters)
+                            <i class="fa-solid fa-star text-sky-600"></i> Dean's List (All Semesters)
+                        </span>
+                        <span class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-amber-50 text-amber-900 border border-amber-200 text-xs font-bold font-heading">
+                            <i class="fa-solid fa-medal text-amber-600"></i> Distinction in Final Professional Examination 1
                         </span>
                     </div>
                 </div>
@@ -287,7 +316,7 @@
                                 <i class="fa-solid fa-plane-departure"></i>
                             </div>
                             <div>
-                                <h3 class="text-xl font-bold text-slate-900 font-heading">Taiwan Linkou Chang Gung Memorial Hospital</h3>
+                                <h3 class="text-xl font-bold text-slate-900 font-heading">Linkou Chang Gung Memorial Hospital, Taiwan</h3>
                                 <div class="text-sm font-semibold text-clinical-700 font-heading uppercase tracking-wider mt-0.5">
                                     International Elective Posting &bull; Clinical Attachment
                                 </div>
@@ -296,42 +325,46 @@
                         <span class="timeline-badge self-start md:self-auto"><i class="fa-regular fa-calendar-days mr-1.5"></i>2025</span>
                     </div>
                     <p class="text-slate-600 text-sm md:text-base text-justify-clinical leading-relaxed">
-                        Completed specialised clinical elective attachment within the <strong class="text-slate-800">Obstetrics & Gynaecology</strong> and <strong class="text-slate-800">Cardiology</strong> departments at Chang Gung Memorial Hospital, Linkou (one of Asia's premier JCI-accredited tertiary medical centres). Immersed in advanced cardiac catheterisation observations, foetal echocardiography, high-risk maternal care rounds, and international healthcare protocol comparisons.
+                        Completed a specialised clinical elective attachment within the <strong class="text-slate-800">Obstetrics &amp; Gynaecology</strong> and <strong class="text-slate-800">Cardiology</strong> departments at Linkou Chang Gung Memorial Hospital (one of Asia's premier JCI-accredited tertiary medical centres). Immersed in advanced cardiac catheterisation observations, foetal echocardiography, high-risk maternal care rounds, and international healthcare protocol comparisons.
                     </p>
                 </div>
 
-                <!-- KMJ Matrikulasi -->
-                <div class="md:col-span-6 bg-slate-50 border border-slate-200 rounded-2xl p-7 shadow-card hover-lift reveal">
-                    <div class="flex justify-between items-start mb-3">
-                        <div class="w-10 h-10 rounded-lg bg-white text-clinical-700 border border-slate-200 flex items-center justify-center text-lg shadow-xs">
-                            <i class="fa-solid fa-dna"></i>
+                <!-- Johor Matriculation College (British English) -->
+                <div class="md:col-span-6 bg-slate-50 border border-slate-200 rounded-2xl p-7 flex flex-col justify-between shadow-card hover-lift reveal">
+                    <div>
+                        <div class="flex justify-between items-start mb-3">
+                            <div class="w-10 h-10 rounded-lg bg-white text-clinical-700 border border-slate-200 flex items-center justify-center text-lg shadow-xs">
+                                <i class="fa-solid fa-dna"></i>
+                            </div>
+                            <span class="timeline-badge"><i class="fa-regular fa-calendar-days mr-1.5"></i>2020 &ndash; 2021</span>
                         </div>
-                        <span class="timeline-badge"><i class="fa-regular fa-calendar-days mr-1.5"></i>2020 &ndash; 2021</span>
+                        <h3 class="text-lg font-bold text-slate-900 font-heading">Johor Matriculation College</h3>
+                        <div class="text-xs font-semibold text-clinical-700 font-heading uppercase tracking-wider mb-3">Pre-University Science Matriculation Programme</div>
+                        <p class="text-slate-600 text-sm text-justify-clinical mb-4 leading-relaxed">
+                            Completed a one-year intensive pre-university science matriculation programme under the Ministry of Education Malaysia. Mastered advanced biological sciences, physical chemistry, and academic team leadership.
+                        </p>
                     </div>
-                    <h3 class="text-lg font-bold text-slate-900 font-heading">Kolej Matrikulasi Johor (KMJ)</h3>
-                    <div class="text-xs font-semibold text-clinical-700 font-heading uppercase tracking-wider mb-3">Pre-University Science Matriculation</div>
-                    <p class="text-slate-600 text-sm text-justify-clinical mb-4 leading-relaxed">
-                        Completed one-year intensive science pre-university preparation. Mastered advanced biological sciences, physical chemistry, and academic team leadership.
-                    </p>
                     <div class="bg-white p-3.5 rounded-xl border border-clinical-200 text-center font-heading">
                         <span class="text-2xl font-extrabold text-clinical-800 block">4.00 CGPA</span>
-                        <span class="text-[11px] font-bold text-slate-500 uppercase tracking-widest">Perfect 4-Flat Score</span>
+                        <span class="text-[11px] font-bold text-slate-500 uppercase tracking-widest">Perfect 4-Flat Distinction</span>
                     </div>
                 </div>
 
-                <!-- SPM High School -->
-                <div class="md:col-span-6 bg-slate-50 border border-slate-200 rounded-2xl p-7 shadow-card hover-lift reveal delay-100">
-                    <div class="flex justify-between items-start mb-3">
-                        <div class="w-10 h-10 rounded-lg bg-white text-clinical-700 border border-slate-200 flex items-center justify-center text-lg shadow-xs">
-                            <i class="fa-solid fa-school"></i>
+                <!-- Catholic High School Petaling Jaya (British English) -->
+                <div class="md:col-span-6 bg-slate-50 border border-slate-200 rounded-2xl p-7 flex flex-col justify-between shadow-card hover-lift reveal delay-100">
+                    <div>
+                        <div class="flex justify-between items-start mb-3">
+                            <div class="w-10 h-10 rounded-lg bg-white text-clinical-700 border border-slate-200 flex items-center justify-center text-lg shadow-xs">
+                                <i class="fa-solid fa-school"></i>
+                            </div>
+                            <span class="timeline-badge"><i class="fa-regular fa-calendar-days mr-1.5"></i>2019</span>
                         </div>
-                        <span class="timeline-badge"><i class="fa-regular fa-calendar-days mr-1.5"></i>2019</span>
+                        <h3 class="text-lg font-bold text-slate-900 font-heading">Catholic High School, Petaling Jaya</h3>
+                        <div class="text-xs font-semibold text-clinical-700 font-heading uppercase tracking-wider mb-3">Malaysian Certificate of Education (SPM)</div>
+                        <p class="text-slate-600 text-sm text-justify-clinical mb-4 leading-relaxed">
+                            Completed secondary education in the Pure Science stream with a proven record in extracurricular athletics, student leadership, and national science competitions.
+                        </p>
                     </div>
-                    <h3 class="text-lg font-bold text-slate-900 font-heading">Catholic High School Petaling Jaya</h3>
-                    <div class="text-xs font-semibold text-clinical-700 font-heading uppercase tracking-wider mb-3">Sijil Pelajaran Malaysia (SPM)</div>
-                    <p class="text-slate-600 text-sm text-justify-clinical mb-4 leading-relaxed">
-                        Pure science stream high school education with proven record in extracurricular athletics, leadership, and national science competitions.
-                    </p>
                     <div class="bg-white p-3.5 rounded-xl border border-clinical-200 grid grid-cols-3 divide-x divide-slate-100 text-center font-heading">
                         <div>
                             <span class="text-2xl font-extrabold text-clinical-800">8</span>
@@ -352,20 +385,21 @@
         </div>
     </section>
 
+    <!-- WORKSHOPS SECTION -->
     <section id="workshops" class="py-24 bg-slate-50 border-b border-slate-200">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-3xl mx-auto mb-16 reveal">
                 <span class="text-xs font-bold text-clinical-600 uppercase tracking-widest font-heading block mb-2">Continuing Medical Skills</span>
-                <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight font-heading">Clinical Workshops & Academic Exchange</h2>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight font-heading">Clinical Workshops &amp; Academic Exchange</h2>
                 <div class="w-16 h-1 bg-clinical-600 mx-auto mt-4 rounded-full"></div>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12 items-stretch">
                 
                 <!-- Workshop 1 -->
                 <div class="bg-white border border-slate-200 rounded-2xl p-7 hover-lift reveal">
                     <div class="flex justify-between items-start mb-3">
-                        <span class="text-xs font-bold text-clinical-700 uppercase tracking-wider font-heading">Medical Simulation & Ethics</span>
+                        <span class="text-xs font-bold text-clinical-700 uppercase tracking-wider font-heading">Medical Simulation &amp; Ethics</span>
                         <span class="timeline-badge"><i class="fa-regular fa-calendar-days mr-1.5"></i>2026</span>
                     </div>
                     <h3 class="text-lg font-bold text-slate-900 font-heading mb-2">Participation in i-Silent Mentor Workshop</h3>
@@ -395,7 +429,7 @@
                     <h3 class="text-lg font-bold text-slate-900 font-heading mb-2">HORN BILLS Surgical Workshop</h3>
                     <div class="text-xs text-slate-500 font-semibold mb-2">Basic Incision, Ligation and Learning Surgical Workshop</div>
                     <p class="text-slate-600 text-sm text-justify-clinical leading-relaxed">
-                        Received practical guidance on operating theatre etiquette, sterile gowning and gloving, scalpel grip, simple incision, two-handed/instrument knot tying, vessel ligation, and interrupted and subcuticular suturing.
+                        Received practical guidance on operating theatre etiquette, sterile gowning and gloving, scalpel grip, simple incision, two-handed and instrument knot tying, vessel ligation, and interrupted and subcuticular suturing.
                     </p>
                 </div>
 
@@ -414,13 +448,13 @@
 
             </div>
 
-            <!-- International Exchange & Academic Competitions Strip (2-Column Balanced Grid) -->
+            <!-- International Exchange & Academic Competitions Strip -->
             <div class="bg-clinical-900 text-white rounded-2xl p-8 md:p-9 shadow-card reveal">
                 <div class="flex items-center gap-3 mb-6">
                     <div class="w-10 h-10 rounded-lg bg-clinical-700 text-clinical-100 flex items-center justify-center text-lg">
                         <i class="fa-solid fa-earth-americas"></i>
                     </div>
-                    <h3 class="text-xl font-bold font-heading">Academic Participation & International Student Exchange</h3>
+                    <h3 class="text-xl font-bold font-heading">Academic Participation &amp; International Student Exchange</h3>
                 </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm">
@@ -430,7 +464,7 @@
                             <span class="text-xs text-clinical-300 font-bold font-heading">2023</span>
                         </div>
                         <p class="text-slate-300 text-xs text-justify-clinical leading-relaxed">
-                            Joined UNIMAS delegation for Asian Medical Students' Exchange Programme; bilateral academic seminars, community visits, and health delivery comparisons.
+                            Joined the UNIMAS delegation for the Asian Medical Students' Exchange Programme; participated in bilateral academic seminars, community visits, and healthcare delivery comparisons.
                         </p>
                     </div>
 
@@ -449,17 +483,20 @@
         </div>
     </section>
 
-    <section id="kydp" class="py-24 bg-slate-950 text-white relative overflow-hidden">
-        <!-- Background Lighting Glows -->
+    <!-- ========================================================================= -->
+    <!-- KYDP SCENARIO 1 SECTION (CLINICAL SKY BLUE & DEEP NAVY THEME)             -->
+    <!-- ========================================================================= -->
+    <section id="kydp-s1" class="py-24 bg-slate-950 text-white relative overflow-hidden scroll-mt-20">
+        <!-- Clinical Blue Ambient Lighting Glows -->
         <div class="absolute -top-32 -right-32 w-[600px] h-[600px] bg-clinical-600/15 rounded-full filter blur-[120px] pointer-events-none"></div>
         <div class="absolute -bottom-32 -left-32 w-[600px] h-[600px] bg-sky-800/15 rounded-full filter blur-[120px] pointer-events-none"></div>
 
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             
-            <!-- Section Header -->
+            <!-- Scenario 1 Header -->
             <div class="text-center max-w-3xl mx-auto mb-16 reveal">
                 <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-clinical-950 border border-clinical-600/40 text-clinical-300 text-xs font-bold font-heading uppercase tracking-widest mb-4">
-                    <i class="fa-solid fa-chart-line text-[11px]"></i> Corporate Up-skilling & Strategy
+                    <i class="fa-solid fa-chart-line text-[11px]"></i> Corporate Up-skilling &amp; Strategy &bull; Scenario 1
                 </div>
                 <h2 class="text-3xl sm:text-5xl font-extrabold tracking-tight font-heading text-white">
                     K-Youth Development Programme
@@ -470,22 +507,22 @@
                 <div class="w-20 h-1 bg-clinical-500 mx-auto mt-4 rounded-full"></div>
             </div>
 
-            <!-- Profile Overview Card within KYDP -->
-            <div class="bg-slate-900/90 border border-slate-800 rounded-3xl p-8 sm:p-10 mb-20 shadow-2xl backdrop-blur-md reveal">
+            <!-- Scenario 1 Role Overview Card -->
+            <div class="bg-slate-900/90 border border-slate-800 rounded-3xl p-8 sm:p-10 mb-16 shadow-2xl backdrop-blur-md reveal">
                 <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
                     <div class="lg:col-span-3 flex justify-center">
                         <div class="w-36 h-36 sm:w-44 sm:h-44 rounded-2xl overflow-hidden border-2 border-clinical-500/40 shadow-soft">
-                            <img src="IMG_20260821_174246.jpg" alt="Dr. Kendron Koay">
+                            <img src="IMG_20260821_174246.jpg" alt="Dr Kendron Koay" class="w-full h-full object-cover">
                         </div>
                     </div>
                     <div class="lg:col-span-9 text-center lg:text-left">
                         <span class="text-xs font-bold text-clinical-400 uppercase tracking-widest font-heading block mb-1">Business Analyst Role Simulation</span>
                         <h4 class="text-2xl sm:text-3xl font-bold font-heading text-white mb-3">Bridging Clinical Science with Executive Decision-Making</h4>
-                        <p class="text-slate-300 text-sm md:text-base text-justify-clinical leading-relaxed font-light mb-4">
-                            In Scenario 1 of the K-Youth Development Programme (KYDP), I functioned as an executive in the Business Analysis Team at <strong class="text-white font-medium">IHH Healthcare</strong>. Tasked with translating the comprehensive 2024 IHH Sustainability Report into actionable customer-facing assets, I synthesised high-impact ESG data into concrete commercial value pillars—demonstrating structured problem framing, generative AI utilisation, and concise corporate communication.
+                        <p class="text-slate-300 text-sm md:text-base text-justify-clinical leading-relaxed font-light mb-5">
+                            In Scenario 1 of the K-Youth Development Programme (KYDP), I functioned as an executive in the Business Analysis Team at <strong class="text-white font-medium">IHH Healthcare</strong>. Tasked with translating the comprehensive 2024 IHH Sustainability Report into actionable customer-facing assets, I synthesised high-impact ESG data into concrete commercial value pillars &ndash; demonstrating structured problem framing, generative AI utilisation, and concise corporate communication.
                         </p>
                         <div class="flex flex-wrap gap-2 justify-center lg:justify-start">
-                            <span class="px-3 py-1 bg-slate-800 text-clinical-200 text-xs rounded-md border border-slate-700">Diverge & Converge Framework</span>
+                            <span class="px-3 py-1 bg-slate-800 text-clinical-200 text-xs rounded-md border border-slate-700">Diverge &amp; Converge Framework</span>
                             <span class="px-3 py-1 bg-slate-800 text-clinical-200 text-xs rounded-md border border-slate-700">STAR Pitch Methodology</span>
                             <span class="px-3 py-1 bg-slate-800 text-clinical-200 text-xs rounded-md border border-slate-700">Generative AI Prompting</span>
                             <span class="px-3 py-1 bg-slate-800 text-clinical-200 text-xs rounded-md border border-slate-700">Healthcare ESG Translation</span>
@@ -494,20 +531,21 @@
                 </div>
             </div>
 
-            <div class="mb-24">
+            <!-- Scenario 1: Written Portfolio -->
+            <div class="mb-20">
                 <div class="flex items-center justify-between pb-4 border-b border-slate-800 mb-8 reveal">
                     <div class="flex items-center gap-3">
                         <div class="w-10 h-10 rounded-xl bg-clinical-500/20 text-clinical-400 flex items-center justify-center text-lg border border-clinical-500/30">
                             <i class="fa-solid fa-file-pdf"></i>
                         </div>
                         <div>
-                            <h3 class="text-xl sm:text-2xl font-bold font-heading text-white">Written Portfolio</h3>
+                            <h3 class="text-xl sm:text-2xl font-bold font-heading text-white">Scenario 1: Written Portfolio</h3>
                             <p class="text-xs text-slate-400 font-heading uppercase tracking-wider">3 Strategic Documents Delivered</p>
                         </div>
                     </div>
                 </div>
 
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 items-stretch">
                     
                     <!-- Document 1: Email -->
                     <div class="bg-slate-900 border border-slate-800 hover:border-clinical-600/50 rounded-2xl p-6 flex flex-col justify-between hover-lift reveal transition duration-300">
@@ -520,7 +558,7 @@
                             </div>
                             <h4 class="text-lg font-bold font-heading text-white mb-2">Campaign Delivery Email</h4>
                             <p class="text-slate-400 text-xs text-justify-clinical leading-relaxed mb-6 font-light">
-                                Formal email to the Marketing Department introducing the sustainability insights memo. Excludes internal metrics and frames high-impact achievements (Life Renewed, electric ambulance, AI diagnostics) across four strategic customer-facing pillars.
+                                Formal email to the Marketing Department introducing the sustainability insights memo. Excludes internal metrics and frames high-impact achievements (Life Renewed, electric ambulance, and AI diagnostics) across four strategic customer-facing pillars.
                             </p>
                         </div>
                         <div class="pt-4 border-t border-slate-800/80 flex items-center justify-between">
@@ -547,7 +585,7 @@
                             </div>
                             <h4 class="text-lg font-bold font-heading text-white mb-2">Strategic Sustainability Memo</h4>
                             <p class="text-slate-400 text-xs text-justify-clinical leading-relaxed mb-6 font-light">
-                                Actionable 1-page memorandum categorising sustainability data into Innovation (AI chest X-ray detection, smart fall prevention), Community (946 cancer cases, 3.1M screenings), Environment (electric bike ambulance, 90% plastic drop), and Global Accolades (TIME & Forbes).
+                                Actionable one-page memorandum categorising sustainability data into Innovation (AI chest X-ray detection and smart fall prevention), Community (946 cancer cases and 3.1M screenings), Environment (electric bike ambulance and 90% plastic drop), and Global Accolades (TIME &amp; Forbes).
                             </p>
                         </div>
                         <div class="pt-4 border-t border-slate-800/80 flex items-center justify-between">
@@ -574,7 +612,7 @@
                             </div>
                             <h4 class="text-lg font-bold font-heading text-white mb-2">IHH Healthcare Onboarding Primer</h4>
                             <p class="text-slate-400 text-xs text-justify-clinical leading-relaxed mb-6 font-light">
-                                In-depth 7-page orientation guide welcoming new executives. Outlines IHH's identity across 80 hospitals in 10 countries, the "Care. For Good." sustainability architecture, psychological safety, and leadership development programmes.
+                                In-depth seven-page orientation guide welcoming new executives. Outlines IHH's identity across 80+ hospitals in 10 countries, the "Care. For Good." sustainability architecture, psychological safety, and leadership development programmes.
                             </p>
                         </div>
                         <div class="pt-4 border-t border-slate-800/80 flex items-center justify-between">
@@ -593,6 +631,7 @@
                 </div>
             </div>
 
+            <!-- Scenario 1: Visual Portfolio -->
             <div>
                 <div class="flex items-center justify-between pb-4 border-b border-slate-800 mb-8 reveal">
                     <div class="flex items-center gap-3">
@@ -600,64 +639,67 @@
                             <i class="fa-solid fa-video"></i>
                         </div>
                         <div>
-                            <h3 class="text-xl sm:text-2xl font-bold font-heading text-white">Visual Portfolio</h3>
-                            <p class="text-xs text-slate-400 font-heading uppercase tracking-wider">Multimedia Reflections & Orientation Video</p>
+                            <h3 class="text-xl sm:text-2xl font-bold font-heading text-white">Scenario 1: Visual Portfolio</h3>
+                            <p class="text-xs text-slate-400 font-heading uppercase tracking-wider">Multimedia Reflections &amp; Orientation Video</p>
                         </div>
                     </div>
                 </div>
 
-                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
                     
-                    <!-- Video 1: Reflection Journal (Fitted Portrait in dedicated player frame) -->
-                    <div class="lg:col-span-5 bg-slate-900 border border-slate-800 rounded-3xl p-6 reveal">
-                        <div class="flex justify-between items-center mb-4">
-                            <span class="px-3 py-1 bg-clinical-950 text-clinical-400 border border-clinical-800 rounded text-xs font-bold font-heading uppercase">
-                                Reflection Journal
-                            </span>
-                            <span class="text-xs text-slate-400"><i class="fa-regular fa-clock mr-1"></i>03:06</span>
+                    <!-- Video 1: Reflection Journal -->
+                    <div class="lg:col-span-5 bg-slate-900 border border-slate-800 rounded-3xl p-6 flex flex-col justify-between reveal">
+                        <div>
+                            <div class="flex justify-between items-center mb-4">
+                                <span class="px-3 py-1 bg-clinical-950 text-clinical-400 border border-clinical-800 rounded text-xs font-bold font-heading uppercase">
+                                    Reflection Journal
+                                </span>
+                                <span class="text-xs text-slate-400"><i class="fa-regular fa-clock mr-1"></i>03:06</span>
+                            </div>
+                            <h4 class="text-lg font-bold font-heading text-white mb-2">Video Reflection Journal</h4>
+                            <p class="text-slate-400 text-xs text-justify-clinical leading-relaxed mb-4 font-light">
+                                Personal verbal reflection assessing three critical skill learnings: the Diverge and Converge problem-solving model, data extraction via generative AI, and the STAR elevator pitch delivery.
+                            </p>
                         </div>
-                        <h4 class="text-lg font-bold font-heading text-white mb-2">Video Reflection Journal</h4>
-                        <p class="text-slate-400 text-xs text-justify-clinical leading-relaxed mb-4 font-light">
-                            Personal verbal reflection assessing three critical skill learnings: the Diverge/Converge problem-solving model, data extraction via generative AI, and the STAR elevator pitch delivery.
-                        </p>
                         
-                        <!-- Fitted Video Container -->
-                        <div class="w-full max-w-[340px] mx-auto aspect-[9/16] bg-black rounded-2xl overflow-hidden border border-slate-800 shadow-2xl relative flex items-center justify-center">
-                            <video controls playsinline preload="metadata" class="w-full h-full object-contain rounded-2xl" poster="IMG_20260821_174246.jpg">
-                                <source src="S1_video reflection_Kendron Koay.mp4" type="video/mp4">
-                                Your browser does not support HTML5 video playback.
-                            </video>
-                        </div>
-                        <div class="text-center mt-3">
-                            <span class="text-[11px] text-slate-400 font-mono">S1_video reflection_Kendron Koay.mp4</span>
+                        <div>
+                            <div class="w-full max-w-[340px] mx-auto aspect-[9/16] bg-black rounded-2xl overflow-hidden border border-slate-800 shadow-2xl relative flex items-center justify-center">
+                                <video controls playsinline preload="metadata" class="w-full h-full object-contain rounded-2xl" poster="IMG_20260821_174246.jpg">
+                                    <source src="S1_video reflection_Kendron Koay.mp4" type="video/mp4">
+                                    Your browser does not support HTML5 video playback.
+                                </video>
+                            </div>
+                            <div class="text-center mt-3">
+                                <span class="text-[11px] text-slate-400 font-mono">S1_video reflection_Kendron Koay.mp4</span>
+                            </div>
                         </div>
                     </div>
 
                     <!-- Video 2: Company Orientation / Sustainability Video -->
-                    <div class="lg:col-span-7 bg-slate-900 border border-slate-800 rounded-3xl p-6 reveal delay-100">
-                        <div class="flex justify-between items-center mb-4">
-                            <span class="px-3 py-1 bg-clinical-950 text-clinical-400 border border-clinical-800 rounded text-xs font-bold font-heading uppercase">
-                                Visual Asset
-                            </span>
-                            <span class="text-xs text-slate-400"><i class="fa-regular fa-clock mr-1"></i>01:45</span>
-                        </div>
-                        <h4 class="text-lg font-bold font-heading text-white mb-2">IHH Healthcare Welcome & Sustainability Video</h4>
-                        <p class="text-slate-400 text-xs text-justify-clinical leading-relaxed mb-4 font-light">
-                            Synthesia AI-powered corporate orientation video produced to induct incoming executives. Highlights 80+ hospital network scale, patient safety initiatives, desflurane gas reduction, and the first 90-day mindset.
-                        </p>
-                        
-                        <!-- Landscape Container -->
-                        <div class="w-full aspect-video bg-black rounded-2xl overflow-hidden border border-slate-800 shadow-2xl relative flex items-center justify-center">
-                            <video controls playsinline preload="metadata" class="w-full h-full object-contain rounded-2xl">
-                                <source src="S1_video_Kendron Koay.mp4" type="video/mp4">
-                                Your browser does not support HTML5 video playback.
-                            </video>
-                        </div>
-                        <div class="text-center mt-3">
-                            <span class="text-[11px] text-slate-400 font-mono">S1_video_Kendron Koay.mp4</span>
+                    <div class="lg:col-span-7 bg-slate-900 border border-slate-800 rounded-3xl p-6 flex flex-col justify-between reveal delay-100">
+                        <div>
+                            <div class="flex justify-between items-center mb-4">
+                                <span class="px-3 py-1 bg-clinical-950 text-clinical-400 border border-clinical-800 rounded text-xs font-bold font-heading uppercase">
+                                    Visual Asset
+                                </span>
+                                <span class="text-xs text-slate-400"><i class="fa-regular fa-clock mr-1"></i>01:45</span>
+                            </div>
+                            <h4 class="text-lg font-bold font-heading text-white mb-2">IHH Healthcare Welcome &amp; Sustainability Video</h4>
+                            <p class="text-slate-400 text-xs text-justify-clinical leading-relaxed mb-4 font-light">
+                                Synthesia AI-powered corporate orientation video produced to induct incoming executives. Highlights the 80+ hospital network scale, patient safety initiatives, desflurane gas reduction, and the first 90-day mindset.
+                            </p>
+                            
+                            <div class="w-full aspect-video bg-black rounded-2xl overflow-hidden border border-slate-800 shadow-2xl relative flex items-center justify-center">
+                                <video controls playsinline preload="metadata" class="w-full h-full object-contain rounded-2xl">
+                                    <source src="S1_video_Kendron Koay.mp4" type="video/mp4">
+                                    Your browser does not support HTML5 video playback.
+                                </video>
+                            </div>
+                            <div class="text-center mt-3">
+                                <span class="text-[11px] text-slate-400 font-mono">S1_video_Kendron Koay.mp4</span>
+                            </div>
                         </div>
 
-                        <!-- Highlights list for video -->
                         <div class="mt-6 p-4 rounded-xl bg-slate-950/70 border border-slate-800 text-xs space-y-2">
                             <div class="font-bold text-clinical-300 font-heading uppercase tracking-wider text-[11px]">Key Video Narrative Milestones:</div>
                             <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-slate-300">
@@ -675,14 +717,258 @@
         </div>
     </section>
 
+    <!-- ========================================================================= -->
+    <!-- KYDP SCENARIO 2 SECTION (MAYBANK EXECUTIVE GOLD & CHARCOAL THEME)         -->
+    <!-- (100% Parallel Structure with Scenario 1, Distinct Gold Colour Palette)   -->
+    <!-- ========================================================================= -->
+    <section id="kydp-s2" class="py-24 bg-slate-900 text-white border-t border-amber-500/20 relative overflow-hidden scroll-mt-20">
+        <!-- Maybank Warm Gold Ambient Lighting Glows -->
+        <div class="absolute -top-32 -left-32 w-[600px] h-[600px] bg-amber-500/10 rounded-full filter blur-[130px] pointer-events-none"></div>
+        <div class="absolute -bottom-32 -right-32 w-[600px] h-[600px] bg-yellow-600/10 rounded-full filter blur-[130px] pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            
+            <!-- Scenario 2 Header (Identical Structure to Scenario 1, Styled in Maybank Gold) -->
+            <div class="text-center max-w-3xl mx-auto mb-16 reveal">
+                <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-950 border border-amber-500/40 text-amber-300 text-xs font-bold font-heading uppercase tracking-widest mb-4">
+                    <i class="fa-solid fa-handshake-angle text-[11px] text-amber-400"></i> Corporate Up-skilling &amp; Strategy &bull; Scenario 2
+                </div>
+                <h2 class="text-3xl sm:text-5xl font-extrabold tracking-tight font-heading text-white">
+                    K-Youth Development Programme
+                </h2>
+                <h3 class="text-base sm:text-lg text-amber-400 font-semibold font-heading mt-2 uppercase tracking-wider">
+                    Scenario 2: Maybank Retail Banking &amp; Mortgage Advisory Portfolio
+                </h3>
+                <div class="w-20 h-1 bg-amber-400 mx-auto mt-4 rounded-full"></div>
+            </div>
+
+            <!-- Scenario 2 Role Overview Card (Styled in Charcoal & Gold) -->
+            <div class="bg-slate-950/90 border border-amber-500/25 rounded-3xl p-8 sm:p-10 mb-16 shadow-2xl backdrop-blur-md reveal">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                    <div class="lg:col-span-3 flex justify-center">
+                        <div class="w-36 h-36 sm:w-44 sm:h-44 rounded-2xl overflow-hidden border-2 border-amber-400/50 shadow-soft-gold">
+                            <img src="IMG_20260821_174246.jpg" alt="Dr Kendron Koay" class="w-full h-full object-cover">
+                        </div>
+                    </div>
+                    <div class="lg:col-span-9 text-center lg:text-left">
+                        <span class="text-xs font-bold text-amber-400 uppercase tracking-widest font-heading block mb-1">Relationship Manager Role Simulation</span>
+                        <h4 class="text-2xl sm:text-3xl font-bold font-heading text-white mb-3">Consultative First-Home Financing for Norman Umar</h4>
+                        <p class="text-slate-300 text-sm md:text-base text-justify-clinical leading-relaxed font-light mb-5">
+                            In Scenario 2 of the K-Youth Development Programme (KYDP), I stepped into the role of a <strong class="text-white font-medium">Relationship Manager at Maybank</strong> advising <strong class="text-white font-medium">Norman Umar</strong>, a 30-year-old accountant seeking mortgage financing for his first property &ndash; a <strong class="text-white font-medium">RM500,000 eco-friendly condominium in Kuala Lumpur</strong>. Using the <strong class="text-amber-300 font-medium">Converge Matrix</strong>, I evaluated Maybank's retail mortgage suite against Norman's financial profile (RM80,000 annual income, RM75,000 ready downpayment, existing personal loan, car loan, and credit card commitments, and a 25-year preferred tenure) to synthesise a comprehensive customer profile, design a tailored product brochure, deliver a consultative sales pitch, and navigate live unexpected client objections.
+                        </p>
+                        <div class="flex flex-wrap gap-2 justify-center lg:justify-start">
+                            <span class="px-3 py-1 bg-slate-900 text-amber-200 text-xs rounded-md border border-amber-500/30">Customer Profile Synthesis</span>
+                            <span class="px-3 py-1 bg-slate-900 text-amber-200 text-xs rounded-md border border-amber-500/30">Converge Decision Matrix</span>
+                            <span class="px-3 py-1 bg-slate-900 text-amber-200 text-xs rounded-md border border-amber-500/30">Tailored Product Brochure</span>
+                            <span class="px-3 py-1 bg-slate-900 text-amber-200 text-xs rounded-md border border-amber-500/30">Consultative Sales Pitch</span>
+                            <span class="px-3 py-1 bg-slate-900 text-amber-200 text-xs rounded-md border border-amber-500/30">Live Objection Handling</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Scenario 2: Written Portfolio (Customer Profile Synthesis) -->
+            <div class="mb-20">
+                <div class="flex items-center justify-between pb-4 border-b border-slate-800 mb-8 reveal">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-xl bg-amber-500/20 text-amber-400 flex items-center justify-center text-lg border border-amber-500/30">
+                            <i class="fa-solid fa-file-lines"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl sm:text-2xl font-bold font-heading text-white">Scenario 2: Written Portfolio</h3>
+                            <p class="text-xs text-amber-400/90 font-heading uppercase tracking-wider">Client Market Research Synthesis &amp; Financial Needs Assessment</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-slate-950 border border-slate-800 hover:border-amber-500/40 rounded-3xl p-6 sm:p-8 shadow-2xl hover-lift-gold reveal transition duration-300">
+                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                        
+                        <!-- Left: Customer Profile Image Preview -->
+                        <div class="lg:col-span-7">
+                            <div class="rounded-2xl overflow-hidden border border-slate-800 bg-black cursor-pointer group relative" onclick="openImageModal('Customer Profile A Norman Umar.png', 'KYDP Scenario 2 &bull; Customer Profile A: Norman Umar')">
+                                <img src="Customer Profile A Norman Umar.png" alt="Customer Profile A: Norman Umar" class="w-full h-auto object-contain transition duration-500 group-hover:scale-[1.01]">
+                                <div class="absolute inset-0 bg-slate-950/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                                    <span class="px-4 py-2 bg-amber-400 text-slate-950 font-heading font-bold text-xs uppercase tracking-wider rounded-full shadow-lg flex items-center gap-2">
+                                        <i class="fa-solid fa-magnifying-glass-plus"></i> Click to Inspect Full Resolution
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="flex items-center justify-between mt-3 px-1">
+                                <span class="text-[11px] text-slate-400 font-mono">Customer Profile A Norman Umar.png</span>
+                                <div class="flex gap-2">
+                                    <button onclick="openImageModal('Customer Profile A Norman Umar.png', 'KYDP Scenario 2 &bull; Customer Profile A: Norman Umar')" class="px-3 py-1.5 bg-slate-800 hover:bg-slate-700 text-white rounded-lg text-xs font-heading font-semibold transition">
+                                        <i class="fa-solid fa-expand mr-1 text-amber-400"></i> Fullscreen
+                                    </button>
+                                    <a href="Customer Profile A Norman Umar.png" target="_blank" download class="px-3 py-1.5 bg-amber-400 hover:bg-amber-300 text-slate-950 rounded-lg text-xs font-heading font-bold transition">
+                                        <i class="fa-solid fa-download"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Right: Written Synthesis Summary -->
+                        <div class="lg:col-span-5 space-y-4">
+                            <div class="inline-flex items-center gap-2 px-2.5 py-1 bg-amber-500/10 text-amber-300 border border-amber-500/30 rounded text-[11px] font-bold font-heading uppercase">
+                                Customer Profile Synthesis
+                            </div>
+                            <h4 class="text-xl font-bold font-heading text-white">Customer Profile A: Norman Umar</h4>
+                            <p class="text-slate-400 text-xs sm:text-sm text-justify-clinical leading-relaxed font-light">
+                                Synthesised raw market research data into a structured client persona for <strong class="text-white font-medium">Norman Umar</strong> (30-year-old single Malaysian CPA accountant at XYZ Accounting Firm, University of Malaya graduate) to guide product selection and brand messaging.
+                            </p>
+
+                            <div class="p-4 rounded-2xl bg-slate-900 border border-slate-800 text-xs space-y-2">
+                                <div class="font-bold text-amber-300 font-heading uppercase tracking-wider text-[11px]">Synthesised Financial Parameters:</div>
+                                <ul class="space-y-1.5 text-slate-300 text-justify-clinical font-light">
+                                    <li>&bull; <strong class="text-white font-medium">Income &amp; Liquid Assets:</strong> RM80,000 annual income; RM15,000 current account, RM30,000 savings, RM10,000 stocks, and RM75,000 ready downpayment.</li>
+                                    <li>&bull; <strong class="text-white font-medium">Existing Commitments:</strong> RM20,000 personal loan, RM50,000 car loan, and RM5,000 credit card balance (RM2,000 average monthly spend).</li>
+                                    <li>&bull; <strong class="text-white font-medium">Purchase Drivers:</strong> Targets a RM500,000 KL condominium over a 25-year tenure with an indicative rate below 3.90% p.a., digital convenience, and cash-flow stability.</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- Scenario 2: Visual Portfolio (Product Brochure, Sales Pitch & Objection Handling) -->
+            <div>
+                <div class="flex items-center justify-between pb-4 border-b border-slate-800 mb-8 reveal">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-xl bg-amber-500/20 text-amber-400 flex items-center justify-center text-lg border border-amber-500/30">
+                            <i class="fa-solid fa-photo-film"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl sm:text-2xl font-bold font-heading text-white">Scenario 2: Visual Portfolio</h3>
+                            <p class="text-xs text-amber-400/90 font-heading uppercase tracking-wider">3 Graded Visual Deliverables (Product Brochure, Sales Pitch Video &amp; Objection Handling Video)</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Visual Deliverable 1: Tailored Product Brochure Card -->
+                <div class="bg-slate-950 border border-slate-800 hover:border-amber-500/40 rounded-3xl p-6 sm:p-8 mb-8 shadow-2xl hover-lift-gold reveal transition duration-300">
+                    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-5">
+                        <div>
+                            <span class="px-3 py-1 bg-amber-500/10 text-amber-300 border border-amber-500/30 rounded text-xs font-bold font-heading uppercase inline-block mb-2">
+                                Visual Asset 1 &bull; Product Brochure
+                            </span>
+                            <h4 class="text-xl font-bold font-heading text-white">Personalised Maybank Home Financing Brochure</h4>
+                        </div>
+                        <div class="flex gap-2 self-start sm:self-auto">
+                            <button onclick="openImageModal('S2_brochure_Kendron Koay.png', 'KYDP Scenario 2 &bull; Personalised Maybank Home Financing Brochure')" class="px-3.5 py-2 bg-slate-800 hover:bg-slate-700 text-white rounded-xl text-xs font-heading font-semibold transition flex items-center gap-1.5">
+                                <i class="fa-solid fa-expand text-amber-400"></i> Fullscreen View
+                            </button>
+                            <a href="S2_brochure_Kendron Koay.png" target="_blank" download class="px-3.5 py-2 bg-amber-400 hover:bg-amber-300 text-slate-950 rounded-xl text-xs font-heading font-bold transition flex items-center gap-1.5">
+                                <i class="fa-solid fa-download"></i> Download PNG
+                            </a>
+                        </div>
+                    </div>
+
+                    <p class="text-slate-400 text-xs sm:text-sm text-justify-clinical leading-relaxed mb-6 font-light">
+                        Custom-designed visual product brochure tailored to Norman Umar's first-home priorities. Recommends <strong class="text-white font-medium">Maybank MaxiHome (Term Loan structure)</strong> for an 85% financing need (RM425,000) with a RM75,000 downpayment over a 25-year tenure, illustrating monthly repayment sensitivity at <strong class="text-white font-medium">3.90% p.a. (~RM2,220/month)</strong> versus <strong class="text-white font-medium">4.45% p.a. (~RM2,350/month)</strong> alongside the <strong class="text-white font-medium">MaxiHome Flexi Loan</strong> alternative and a 4-step digital application roadmap via MAE and Home2u.
+                    </p>
+
+                    <!-- Brochure Image Container -->
+                    <div class="rounded-2xl overflow-hidden border border-slate-800 bg-black cursor-pointer group relative" onclick="openImageModal('S2_brochure_Kendron Koay.png', 'KYDP Scenario 2 &bull; Personalised Maybank Home Financing Brochure')">
+                        <img src="S2_brochure_Kendron Koay.png" alt="Maybank Home Financing Brochure Personalised for Norman Umar" class="w-full h-auto object-contain transition duration-500 group-hover:scale-[1.01]">
+                        <div class="absolute inset-0 bg-slate-950/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                            <span class="px-5 py-2.5 bg-amber-400 text-slate-950 font-heading font-bold text-xs uppercase tracking-wider rounded-full shadow-lg flex items-center gap-2">
+                                <i class="fa-solid fa-magnifying-glass-plus"></i> Click to Inspect Full Resolution Brochure
+                            </span>
+                        </div>
+                    </div>
+                    <div class="text-center mt-3">
+                        <span class="text-[11px] text-slate-400 font-mono">S2_brochure_Kendron Koay.png</span>
+                    </div>
+                </div>
+
+                <!-- Visual Deliverables 2 & 3: Sales Pitch Video & Objection Handling Video -->
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+                    
+                    <!-- Video 1: Sales Pitch -->
+                    <div class="lg:col-span-6 bg-slate-950 border border-slate-800 hover:border-amber-500/40 rounded-3xl p-6 flex flex-col justify-between hover-lift-gold reveal transition duration-300">
+                        <div>
+                            <div class="flex justify-between items-center mb-4">
+                                <span class="px-3 py-1 bg-amber-500/10 text-amber-300 border border-amber-500/30 rounded text-xs font-bold font-heading uppercase">
+                                    Visual Asset 2 &bull; Sales Pitch
+                                </span>
+                                <span class="text-xs text-slate-400"><i class="fa-regular fa-clock mr-1 text-amber-400"></i>02:45</span>
+                            </div>
+                            <h4 class="text-lg font-bold font-heading text-white mb-2">Consultative Mortgage Sales Pitch</h4>
+                            <p class="text-slate-400 text-xs text-justify-clinical leading-relaxed mb-4 font-light">
+                                Structured two-minute consultative pitch reframing Norman's home-buying decision from <em>"How much can I borrow?"</em> to <em>"How can I own the home I want while still remaining financially comfortable afterwards?"</em> Walks through the RM425,000 Maybank MaxiHome recommendation, rate sensitivity illustrations (RM2,220 at 3.90% p.a. vs RM2,350 at 4.45% p.a.), and digital application tracking via MAE and Home2u.
+                            </p>
+
+                            <div class="w-full aspect-video bg-black rounded-2xl overflow-hidden border border-slate-800 shadow-2xl relative flex items-center justify-center">
+                                <video controls playsinline preload="metadata" class="w-full h-full object-contain rounded-2xl">
+                                    <source src="S2_sales pitch_Kendron Koay.mp4" type="video/mp4">
+                                    Your browser does not support HTML5 video playback.
+                                </video>
+                            </div>
+                            <div class="text-center mt-3 mb-5">
+                                <span class="text-[11px] text-slate-400 font-mono">S2_sales pitch_Kendron Koay.mp4</span>
+                            </div>
+                        </div>
+
+                        <div class="p-4 rounded-xl bg-slate-900 border border-slate-800 text-xs space-y-2">
+                            <div class="font-bold text-amber-300 font-heading uppercase tracking-wider text-[11px]">Key Consultative Pitch Milestones:</div>
+                            <div class="space-y-1.5 text-slate-300 text-justify-clinical font-light">
+                                <div>&bull; <strong class="text-white font-medium">Cash-Flow Discipline:</strong> Protects monthly savings and investments alongside personal loan, car loan, and credit card commitments.</div>
+                                <div>&bull; <strong class="text-white font-medium">Rate Transparency:</strong> Distinguishes indicative planning rates from final Letter of Offer terms.</div>
+                                <div>&bull; <strong class="text-white font-medium">Actionable Next Step:</strong> Proposes an initial eligibility and affordability assessment before commitment.</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Video 2: Objection Handling -->
+                    <div class="lg:col-span-6 bg-slate-950 border border-slate-800 hover:border-amber-500/40 rounded-3xl p-6 flex flex-col justify-between hover-lift-gold reveal delay-100 transition duration-300">
+                        <div>
+                            <div class="flex justify-between items-center mb-4">
+                                <span class="px-3 py-1 bg-amber-500/10 text-amber-300 border border-amber-500/30 rounded text-xs font-bold font-heading uppercase">
+                                    Visual Asset 3 &bull; Objection Handling
+                                </span>
+                                <span class="text-xs text-slate-400"><i class="fa-regular fa-clock mr-1 text-amber-400"></i>07:00</span>
+                            </div>
+                            <h4 class="text-lg font-bold font-heading text-white mb-2">Live Client Objection Handling Roleplay</h4>
+                            <p class="text-slate-400 text-xs text-justify-clinical leading-relaxed mb-4 font-light">
+                                Live interactive roleplay session demonstrating active listening, empathy, and professional composure while resolving four unexpected client objections raised by Norman regarding upfront cash depletion, hidden fees, customer service responsiveness, and loan approval timelines.
+                            </p>
+
+                            <div class="w-full aspect-video bg-black rounded-2xl overflow-hidden border border-slate-800 shadow-2xl relative flex items-center justify-center">
+                                <video controls playsinline preload="metadata" class="w-full h-full object-contain rounded-2xl">
+                                    <source src="S2_objection handling_Kendron Koay.mp4" type="video/mp4">
+                                    Your browser does not support HTML5 video playback.
+                                </video>
+                            </div>
+                            <div class="text-center mt-3 mb-5">
+                                <span class="text-[11px] text-slate-400 font-mono">S2_objection handling_Kendron Koay.mp4</span>
+                            </div>
+                        </div>
+
+                        <div class="p-4 rounded-xl bg-slate-900 border border-slate-800 text-xs space-y-2">
+                            <div class="font-bold text-amber-300 font-heading uppercase tracking-wider text-[11px]">4 Client Objections Systematically Resolved:</div>
+                            <div class="space-y-1.5 text-slate-300 text-justify-clinical font-light">
+                                <div>&bull; <strong class="text-white font-medium">Upfront Savings Buffer:</strong> Compares the RM75,000 (15%) downpayment against a higher financing margin to weigh cash buffer vs monthly instalment.</div>
+                                <div>&bull; <strong class="text-white font-medium">Hidden Fees &amp; Flexi Costs:</strong> Reviews the Product Disclosure Sheet (PDS), legal, stamp duty, MRTA, and Flexi fees upfront.</div>
+                                <div>&bull; <strong class="text-white font-medium">Service &amp; Approval Speed:</strong> Combines dedicated Relationship Manager follow-up with real-time MAE and Home2u tracking.</div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </section>
+
     <!-- CONTACT SECTION -->
     <section id="contact" class="py-24 bg-white border-t border-slate-200">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-3xl mx-auto mb-16 reveal">
                 <span class="text-xs font-bold text-clinical-600 uppercase tracking-widest font-heading block mb-2">Get In Touch</span>
-                <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight font-heading">Contact & Professional Network</h2>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight font-heading">Contact &amp; Professional Network</h2>
                 <div class="w-16 h-1 bg-clinical-600 mx-auto mt-4 rounded-full"></div>
-                <p class="text-slate-600 text-sm md:text-base mt-4">Open to professional opportunities, KKM housemanship enquiries, and medical collaborations.</p>
+                <p class="text-slate-600 text-sm md:text-base mt-4">Open to professional opportunities, Ministry of Health Malaysia (MOH) housemanship enquiries, and medical collaborations.</p>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
@@ -716,6 +1002,7 @@
         </div>
     </section>
 
+    <!-- SCENARIO 1 PDF SUMMARY MODAL -->
     <div id="pdf-modal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm hidden items-center justify-center p-4">
         <div class="bg-white rounded-2xl w-full max-w-2xl max-h-[85vh] overflow-hidden flex flex-col shadow-2xl">
             <div class="p-5 border-b border-slate-200 flex justify-between items-center bg-slate-50">
@@ -744,6 +1031,29 @@
         </div>
     </div>
 
+    <!-- SCENARIO 2 FULLSCREEN IMAGE LIGHTBOX MODAL -->
+    <div id="image-modal" class="fixed inset-0 z-50 bg-black/90 backdrop-blur-md hidden items-center justify-center p-4">
+        <div class="relative w-full max-w-6xl max-h-[92vh] flex flex-col items-center">
+            <div class="w-full flex justify-between items-center text-white mb-3 px-2">
+                <span id="image-modal-caption" class="text-xs sm:text-sm font-heading font-bold uppercase tracking-wider text-amber-400">
+                    KYDP Scenario 2 Asset
+                </span>
+                <div class="flex items-center gap-3">
+                    <a id="image-modal-download" href="#" download class="px-3.5 py-1.5 bg-amber-400 hover:bg-amber-300 text-slate-950 rounded-lg text-xs font-heading font-bold uppercase tracking-wider transition">
+                        <i class="fa-solid fa-download mr-1"></i> Download
+                    </a>
+                    <button onclick="closeImageModal()" class="w-9 h-9 rounded-lg bg-slate-800 hover:bg-slate-700 text-white flex items-center justify-center text-lg">
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="overflow-auto max-h-[82vh] w-full rounded-2xl border border-slate-700 bg-black p-2">
+                <img id="image-modal-src" src="" alt="Full Resolution Asset" class="w-full h-auto object-contain rounded-xl">
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
     <footer class="bg-white border-t border-slate-200 py-14">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex flex-col md:flex-row justify-between items-center gap-8">
@@ -752,16 +1062,16 @@
                         <i class="fa-solid fa-heart-pulse"></i>
                     </div>
                     <div>
-                        <h4 class="text-lg font-bold text-slate-900 font-heading">Dr. Kendron Koay</h4>
+                        <h4 class="text-lg font-bold text-slate-900 font-heading">Dr Kendron Koay</h4>
                         <p class="text-xs text-slate-500 font-heading font-semibold uppercase tracking-wider">
-                            Medical Graduate &bull; Faculty of Medicine & Health Sciences, UNIMAS
+                            Medical Graduate &bull; Faculty of Medicine &amp; Health Sciences, UNIMAS
                         </p>
                     </div>
                 </div>
 
                 <div class="text-center md:text-right">
                     <div class="text-xs font-bold text-slate-700 font-heading">
-                        &copy; 2026 Dr. Kendron Koay. All Rights Reserved.
+                        &copy; 2026 Dr Kendron Koay. All Rights Reserved.
                     </div>
                 </div>
             </div>
@@ -792,7 +1102,7 @@
                 nav.style.backgroundColor = 'rgba(255, 255, 255, 0.98)';
             } else {
                 nav.classList.remove('shadow-card');
-                nav.style.backgroundColor = 'rgba(255, 255, 255, 0.94)';
+                nav.style.backgroundColor = 'rgba(255, 255, 255, 0.95)';
             }
         });
 
@@ -807,7 +1117,7 @@
 
         document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
 
-        // PDF Data Store for Interactive Modal
+        // PDF Data Store for Interactive Modal (Scenario 1)
         const pdfData = {
             pdf1: {
                 title: "Delivery Email to Marketing Team",
@@ -816,12 +1126,12 @@
                 content: `
                     <div class="p-3 bg-slate-100 rounded-lg text-xs font-mono mb-3">
                         <strong>Subject:</strong> Strategic Sustainability Insights for Customer-Facing Campaigns (Memo Attached)<br>
-                        <strong>From:</strong> Dr. Kendron Koay (Business Analyst | Business Analysis Team, IHH Healthcare)<br>
+                        <strong>From:</strong> Dr Kendron Koay (Business Analyst | Business Analysis Team, IHH Healthcare)<br>
                         <strong>To:</strong> Marketing Department
                     </div>
                     <p class="text-justify-clinical"><strong>Executive Message:</strong></p>
                     <p class="text-justify-clinical">Please find attached a one-page memorandum detailing the strategic, customer-centric insights extracted from the IHH Healthcare 2024 Sustainability Report. To support your objective of promoting IHH's sustainability progress to our customers, this memo deliberately excludes internal operational metrics. Instead, it highlights high-impact achievements designed to elevate brand prestige and influence consumer purchasing behaviour.</p>
-                    <p class="text-justify-clinical">Key strategic pillars highlighted: <strong>Patient Experience & Clinical Excellence</strong> (8M digital records, Annalise.ai & SmartPeep), <strong>Community Impact</strong> (Life Renewed cancer funding for 946 patients, 3.1M screenings), <strong>Environmental Stewardship</strong> (first electric motorcycle ambulance, 90% plastic drop), and <strong>Global Accolades</strong> (TIME & Forbes recognitions).</p>
+                    <p class="text-justify-clinical">Key strategic pillars highlighted: <strong>Patient Experience &amp; Clinical Excellence</strong> (8M digital records, Annalise.ai &amp; SmartPeep), <strong>Community Impact</strong> (Life Renewed cancer funding for 946 patients, 3.1M screenings), <strong>Environmental Stewardship</strong> (first electric motorcycle ambulance, 90% plastic drop), and <strong>Global Accolades</strong> (TIME &amp; Forbes recognitions).</p>
                 `
             },
             pdf2: {
@@ -831,14 +1141,14 @@
                 content: `
                     <div class="p-3 bg-slate-100 rounded-lg text-xs font-mono mb-3">
                         <strong>MEMORANDUM</strong><br>
-                        <strong>TO:</strong> Marketing Department | <strong>FROM:</strong> Business Analysis Team (Dr. Kendron Koay)<br>
+                        <strong>TO:</strong> Marketing Department | <strong>FROM:</strong> Business Analysis Team (Dr Kendron Koay)<br>
                         <strong>DATE:</strong> 7 October 2026 | <strong>SUBJECT:</strong> Strategic Sustainability Insights for Customer-Facing Campaigns
                     </div>
-                    <h5 class="font-bold text-slate-900 font-heading text-sm">1. Elevating Patient Experience & Clinical Excellence</h5>
+                    <h5 class="font-bold text-slate-900 font-heading text-sm">1. Elevating Patient Experience &amp; Clinical Excellence</h5>
                     <p class="text-justify-clinical">8+ million patients empowered via MyHealth360 online portals. Deployed Annalise.ai for rapid 20-second chest X-ray triage (detecting up to 124 abnormalities) and SmartPeep video analytics preventing patient falls in wards.</p>
                     
-                    <h5 class="font-bold text-slate-900 font-heading text-sm mt-3">2. Tangible Community Impact & Social Responsibility</h5>
-                    <p class="text-justify-clinical">Life Renewed Programme fully sponsored advanced radiotherapy/radiosurgery for 946 public hospital cancer patients in Malaysia; over 3.1 million health and oncology screenings conducted since 2022.</p>
+                    <h5 class="font-bold text-slate-900 font-heading text-sm mt-3">2. Tangible Community Impact &amp; Social Responsibility</h5>
+                    <p class="text-justify-clinical">Life Renewed Programme fully sponsored advanced radiotherapy and radiosurgery for 946 public hospital cancer patients in Malaysia; over 3.1 million health and oncology screenings conducted since 2022.</p>
 
                     <h5 class="font-bold text-slate-900 font-heading text-sm mt-3">3. Pioneering Environmental Stewardship</h5>
                     <p class="text-justify-clinical">Prince Court Medical Centre deployed Malaysia's first electric motorcycle ambulance. Eliminated &gt;90% of single-use virgin plastics in non-clinical areas across Malaysia, Singapore, Hong Kong, and T&uuml;rkiye.</p>
@@ -854,16 +1164,16 @@
                 content: `
                     <div class="p-3 bg-slate-100 rounded-lg text-xs font-mono mb-3">
                         <strong>IHH Healthcare Onboarding Primer &bull; "Care. For Good."</strong><br>
-                        Target: New Executives & Rising Leaders &bull; 70,000+ Global Colleagues &bull; 80+ Hospitals
+                        Target: New Executives &amp; Rising Leaders &bull; 70,000+ Global Colleagues &bull; 80+ Hospitals
                     </div>
                     <h5 class="font-bold text-slate-900 font-heading text-sm">Key Sections Covered:</h5>
                     <ul class="list-disc list-inside space-y-1.5 text-xs text-justify-clinical mt-2">
-                        <li><strong>Identity & Values:</strong> Purpose: Touching Lives. Transforming Care. Values: Patients First, Integrity, Empathy, Teamwork, Excellence.</li>
+                        <li><strong>Identity &amp; Values:</strong> Purpose: Touching Lives. Transforming Care. Values: Patients First, Integrity, Empathy, Teamwork, Excellence.</li>
                         <li><strong>Sustainability Architecture:</strong> People, Patients, Public, Planet with strict anti-bribery governance and EthicsPoint reporting.</li>
-                        <li><strong>People & Psychological Safety:</strong> Mental Health First Aid (202 certified leaders), Intellect digital app for 24,000+ staff, 49% women in senior leadership.</li>
+                        <li><strong>People &amp; Psychological Safety:</strong> Mental Health First Aid (202 certified leaders), Intellect digital app for 24,000+ staff, 49% women in senior leadership.</li>
                         <li><strong>Environmental Milestones:</strong> 55% reduction in high-potency desflurane anaesthetic gas, solar farm transitions, clinical gown usage cut by 60% via modified precautions.</li>
                         <li><strong>Antimicrobial Stewardship (AMS):</strong> First private hospital group in Asia to implement CDC-aligned AMR protocols.</li>
-                        <li><strong>Humanitarian Action:</strong> Container city 'Solidarity Quarter' built for 2023 T&uuml;rkiye earthquake victims, RM 1 million flood relief donation in Malaysia.</li>
+                        <li><strong>Humanitarian Action:</strong> Container city 'Solidarity Quarter' built for 2023 T&uuml;rkiye earthquake victims, RM1 million flood relief donation in Malaysia.</li>
                     </ul>
                 `
             }
@@ -891,14 +1201,41 @@
             modal.classList.remove('flex');
         }
 
-        // Close on escape key
+        // Image Lightbox Modal Functions (Scenario 2 Brochure & Customer Profile)
+        const imageModal = document.getElementById('image-modal');
+        const imageModalSrc = document.getElementById('image-modal-src');
+        const imageModalDownload = document.getElementById('image-modal-download');
+        const imageModalCaption = document.getElementById('image-modal-caption');
+
+        function openImageModal(src, captionText) {
+            imageModalSrc.setAttribute('src', src);
+            imageModalDownload.setAttribute('href', src);
+            if (captionText) {
+                imageModalCaption.innerHTML = captionText;
+            }
+            imageModal.classList.remove('hidden');
+            imageModal.classList.add('flex');
+        }
+
+        function closeImageModal() {
+            imageModal.classList.add('hidden');
+            imageModal.classList.remove('flex');
+        }
+
+        // Close modals on Escape key
         document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape') closeModal();
+            if (e.key === 'Escape') {
+                closeModal();
+                closeImageModal();
+            }
         });
 
         // Close when clicking outside dialog container
         modal.addEventListener('click', (e) => {
             if (e.target === modal) closeModal();
+        });
+        imageModal.addEventListener('click', (e) => {
+            if (e.target === imageModal) closeImageModal();
         });
     </script>
 </body>
