@@ -32,18 +32,38 @@
                             300: '#7dd3fc',
                             400: '#38bdf8',
                             500: '#0ea5e9',
-                            600: '#0284c7', // Scenario 1 & Primary Accent
+                            600: '#0284c7',
                             700: '#0369a1',
                             800: '#075985',
-                            900: '#0c4a6e', // Deep Hospital Navy
+                            900: '#0c4a6e',
                             950: '#082f49',
+                        },
+                        grab: {
+                            50: '#f0fdf4',
+                            400: '#4ade80',
+                            500: '#00B14F',
+                            600: '#16a34a',
+                            900: '#14532d',
+                            950: '#052e16',
+                        },
+                        capstone: {
+                            50: '#eff6ff',
+                            300: '#93c5fd',
+                            400: '#60a5fa',
+                            500: '#3b82f6',
+                            600: '#2563eb',
+                            700: '#1d4ed8',
+                            900: '#1e3a8a',
+                            950: '#172554',
                         }
                     },
                     boxShadow: {
-                        'soft': '0 10px 30px -5px rgba(2, 132, 199, 0.07)',
-                        'soft-gold': '0 10px 30px -5px rgba(245, 158, 11, 0.12)',
+                        'soft': '0 10px 30px -5px rgba(2, 132, 199, 0.08)',
+                        'soft-gold': '0 10px 30px -5px rgba(245, 158, 11, 0.14)',
+                        'soft-grab': '0 10px 30px -5px rgba(0, 177, 79, 0.14)',
+                        'soft-cap': '0 10px 30px -5px rgba(37, 99, 235, 0.15)',
                         'card': '0 4px 16px -2px rgba(15, 23, 42, 0.05)',
-                        'floating': '0 20px 35px -8px rgba(12, 74, 110, 0.12)',
+                        'floating': '0 20px 35px -8px rgba(12, 74, 110, 0.14)',
                     }
                 }
             }
@@ -63,7 +83,6 @@
             letter-spacing: -0.015em;
         }
 
-        /* Clean Justified Alignment without mid-word hyphen breaks */
         .text-justify-clinical {
             text-align: justify;
             text-justify: inter-word;
@@ -74,16 +93,16 @@
         }
 
         .glass-nav {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(14px);
-            -webkit-backdrop-filter: blur(14px);
-            border-bottom: 1px solid rgba(226, 232, 240, 0.9);
+            background: rgba(255, 255, 255, 0.96);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-bottom: 1px solid rgba(226, 232, 240, 0.95);
         }
 
         .timeline-badge {
             display: inline-flex;
             align-items: center;
-            padding: 0.22rem 0.75rem;
+            padding: 0.24rem 0.8rem;
             background-color: #f0f9ff;
             color: #0369a1;
             font-family: 'Montserrat', sans-serif;
@@ -96,64 +115,55 @@
         }
 
         .hover-lift {
-            transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s ease;
+            transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s ease, border-color 0.25s ease;
         }
         .hover-lift:hover {
             transform: translateY(-4px);
-            box-shadow: 0 16px 30px -6px rgba(2, 132, 199, 0.12);
+            box-shadow: 0 16px 32px -6px rgba(15, 23, 42, 0.14);
         }
 
-        .hover-lift-gold {
-            transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s ease;
-        }
-        .hover-lift-gold:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 16px 30px -6px rgba(245, 158, 11, 0.15);
-        }
-
-        /* Subtle scroll animations */
         .reveal {
             opacity: 0;
-            transform: translateY(28px);
-            transition: all 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+            transform: translateY(24px);
+            transition: all 0.65s cubic-bezier(0.16, 1, 0.3, 1);
         }
         .reveal.active {
             opacity: 1;
             transform: translateY(0);
         }
 
-        /* Custom Scrollbar */
         ::-webkit-scrollbar { width: 7px; height: 7px; }
         ::-webkit-scrollbar-track { background: #f1f5f9; }
         ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 8px; }
         ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
     </style>
 </head>
-<body class="selection:bg-clinical-500 selection:text-white antialiased">
+<body class="selection:bg-clinical-600 selection:text-white antialiased">
 
-    <!-- UNIFIED & CONSISTENT NAVIGATION BAR -->
+    <!-- NAVIGATION BAR -->
     <nav class="fixed top-0 left-0 right-0 glass-nav z-50 transition-all duration-300" id="mainNav">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-20 items-center">
-                <!-- Brand Identity -->
                 <div class="flex items-center gap-3 cursor-pointer" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
                     <div class="w-11 h-11 bg-clinical-900 text-white rounded-xl flex items-center justify-center font-heading font-bold text-lg shadow-md border border-clinical-700">
                         KK
                     </div>
                     <div>
                         <span class="font-bold text-base md:text-lg tracking-tight text-slate-900 font-heading block leading-tight">Dr Kendron Koay</span>
-                        <span class="text-[11px] font-semibold text-clinical-600 tracking-wider uppercase font-heading">Medical Portfolio</span>
+                        <span class="text-[11px] font-semibold text-clinical-600 tracking-wider uppercase font-heading">Medical &amp; Executive Portfolio</span>
                     </div>
                 </div>
 
-                <!-- Desktop Menu (100% Uniform Typography, Colour & Spacing) -->
-                <div class="hidden lg:flex items-center space-x-7 text-xs font-semibold uppercase tracking-wider font-heading">
+                <!-- Desktop Menu -->
+                <div class="hidden lg:flex items-center space-x-5 text-xs font-semibold uppercase tracking-wider font-heading">
                     <a href="#about" class="text-slate-600 hover:text-clinical-700 transition-colors">Profile</a>
                     <a href="#education" class="text-slate-600 hover:text-clinical-700 transition-colors">Education</a>
                     <a href="#workshops" class="text-slate-600 hover:text-clinical-700 transition-colors">Workshops</a>
-                    <a href="#kydp-s1" class="text-slate-600 hover:text-clinical-700 transition-colors">KYDP Scenario 1</a>
-                    <a href="#kydp-s2" class="text-slate-600 hover:text-clinical-700 transition-colors">KYDP Scenario 2</a>
-                    <a href="#contact" class="px-5 py-2.5 bg-clinical-900 text-white hover:bg-clinical-800 rounded-full transition-all shadow-sm hover:shadow border border-clinical-700 flex items-center gap-2">
+                    <a href="#kydp-s1" class="text-slate-600 hover:text-clinical-600 transition-colors">KYDP S1</a>
+                    <a href="#kydp-s2" class="text-slate-600 hover:text-amber-600 transition-colors">KYDP S2</a>
+                    <a href="#kydp-s3" class="text-slate-600 hover:text-grab-600 transition-colors">KYDP S3</a>
+                    <a href="#capstone" class="text-slate-600 hover:text-capstone-600 transition-colors">Capstone</a>
+                    <a href="#contact" class="px-4 py-2 bg-clinical-900 text-white hover:bg-clinical-800 rounded-full transition-all shadow-sm flex items-center gap-2">
                         <i class="fa-solid fa-envelope text-[10px] text-clinical-300"></i> Contact
                     </a>
                 </div>
@@ -167,24 +177,24 @@
             </div>
         </div>
 
-        <!-- Mobile Drawer (Uniform Links) -->
+        <!-- Mobile Drawer -->
         <div id="mobile-drawer" class="hidden lg:hidden bg-white border-t border-slate-200 px-6 pt-4 pb-6 space-y-3 font-heading text-sm font-semibold shadow-xl">
             <a href="#about" class="block py-2 text-slate-700 hover:text-clinical-600">Profile</a>
             <a href="#education" class="block py-2 text-slate-700 hover:text-clinical-600">Education Journey</a>
             <a href="#workshops" class="block py-2 text-slate-700 hover:text-clinical-600">Workshops &amp; Exchange</a>
-            <a href="#kydp-s1" class="block py-2 text-slate-700 hover:text-clinical-600">KYDP Scenario 1</a>
-            <a href="#kydp-s2" class="block py-2 text-slate-700 hover:text-clinical-600">KYDP Scenario 2</a>
+            <a href="#kydp-s1" class="block py-2 text-clinical-700 hover:text-clinical-600">KYDP Scenario 1</a>
+            <a href="#kydp-s2" class="block py-2 text-amber-600 hover:text-amber-700">KYDP Scenario 2</a>
+            <a href="#kydp-s3" class="block py-2 text-grab-600 hover:text-grab-700">KYDP Scenario 3</a>
+            <a href="#capstone" class="block py-2 text-capstone-600 hover:text-capstone-700">Capstone Project</a>
             <a href="#contact" class="block py-2.5 text-center bg-clinical-900 text-white rounded-xl">Contact Me</a>
         </div>
     </nav>
 
-    <!-- HERO / PROFILE SECTION -->
+    <!-- HERO SECTION -->
     <section id="about" class="pt-32 pb-20 lg:pt-44 lg:pb-28 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto min-h-[92vh] flex items-center relative">
         <div class="absolute -top-12 right-0 w-96 h-96 bg-clinical-100/60 rounded-full filter blur-3xl -z-10 pointer-events-none"></div>
 
         <div class="w-full grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-            
-            <!-- Left Bio Intro -->
             <div class="lg:col-span-7 text-center lg:text-left reveal active">
                 <div class="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-clinical-50 border border-clinical-200 text-clinical-800 text-xs font-bold font-heading mb-6 uppercase tracking-wider shadow-xs">
                     <span class="w-2 h-2 rounded-full bg-clinical-500 animate-pulse"></span>
@@ -207,7 +217,6 @@
                     Medical graduate from Universiti Malaysia Sarawak (UNIMAS) with sustained academic distinction (3.76 CGPA) and rigorous clinical exposure across tertiary, district, and community care settings. Highly motivated to commence housemanship training with the Ministry of Health Malaysia (MOH), demonstrating sharp diagnostic reasoning, structured ward communication, and versatile adaptability refined through clinical medicine and corporate strategic training.
                 </p>
 
-                <!-- Core Highlights Pills (4 Balanced Metrics) -->
                 <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-8 max-w-2xl mx-auto lg:mx-0 text-left">
                     <div class="bg-white p-3.5 rounded-xl border border-slate-200 shadow-card">
                         <div class="text-clinical-700 font-heading font-extrabold text-lg">3.76 CGPA</div>
@@ -227,21 +236,25 @@
                     </div>
                 </div>
 
-                <!-- Action CTA Buttons -->
-                <div class="flex flex-wrap items-center justify-center lg:justify-start gap-3.5">
-                    <a href="#education" class="px-6 py-3 bg-clinical-900 hover:bg-clinical-800 text-white font-heading font-bold text-xs uppercase tracking-wider rounded-xl transition-all shadow-md flex items-center gap-2">
-                        <i class="fa-solid fa-graduation-cap"></i> Education Journey
+                <div class="flex flex-wrap items-center justify-center lg:justify-start gap-3">
+                    <a href="#education" class="px-5 py-3 bg-clinical-900 hover:bg-clinical-800 text-white font-heading font-bold text-xs uppercase tracking-wider rounded-xl transition-all shadow-md flex items-center gap-2">
+                        <i class="fa-solid fa-graduation-cap"></i> Education
                     </a>
-                    <a href="#kydp-s1" class="px-6 py-3 bg-white hover:bg-clinical-50 text-clinical-900 border border-slate-300 font-heading font-bold text-xs uppercase tracking-wider rounded-xl transition-all shadow-card flex items-center gap-2">
-                        <i class="fa-solid fa-folder-tree text-clinical-600"></i> KYDP Scenario 1
+                    <a href="#kydp-s1" class="px-5 py-3 bg-white hover:bg-slate-50 text-slate-900 border border-slate-300 font-heading font-bold text-xs uppercase tracking-wider rounded-xl transition-all shadow-card flex items-center gap-2">
+                        <i class="fa-solid fa-folder-tree text-clinical-600"></i> KYDP S1
                     </a>
-                    <a href="#kydp-s2" class="px-6 py-3 bg-white hover:bg-amber-50 text-slate-900 border border-slate-300 font-heading font-bold text-xs uppercase tracking-wider rounded-xl transition-all shadow-card flex items-center gap-2">
-                        <i class="fa-solid fa-briefcase text-amber-500"></i> KYDP Scenario 2
+                    <a href="#kydp-s2" class="px-5 py-3 bg-white hover:bg-amber-50 text-slate-900 border border-slate-300 font-heading font-bold text-xs uppercase tracking-wider rounded-xl transition-all shadow-card flex items-center gap-2">
+                        <i class="fa-solid fa-briefcase text-amber-500"></i> KYDP S2
+                    </a>
+                    <a href="#kydp-s3" class="px-5 py-3 bg-white hover:bg-grab-50 text-slate-900 border border-slate-300 font-heading font-bold text-xs uppercase tracking-wider rounded-xl transition-all shadow-card flex items-center gap-2">
+                        <i class="fa-solid fa-chart-line text-grab-500"></i> KYDP S3
+                    </a>
+                    <a href="#capstone" class="px-5 py-3 bg-capstone-600 hover:bg-capstone-700 text-white font-heading font-bold text-xs uppercase tracking-wider rounded-xl transition-all shadow-md flex items-center gap-2">
+                        <i class="fa-solid fa-award"></i> Capstone
                     </a>
                 </div>
             </div>
 
-            <!-- Right Portrait Card -->
             <div class="lg:col-span-5 flex justify-center reveal active">
                 <div class="relative w-full max-w-xs sm:max-w-sm">
                     <div class="absolute inset-0 bg-clinical-200/50 rounded-3xl transform rotate-2 -z-10"></div>
@@ -258,7 +271,6 @@
                     </div>
                 </div>
             </div>
-
         </div>
     </section>
 
@@ -272,8 +284,6 @@
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-stretch">
-                
-                <!-- UNIMAS Medical Degree -->
                 <div class="md:col-span-12 bg-slate-50 border border-slate-200 rounded-2xl p-7 md:p-9 shadow-card hover-lift reveal">
                     <div class="flex flex-col md:flex-row md:items-start justify-between gap-4 mb-4">
                         <div class="flex items-start gap-4">
@@ -294,7 +304,6 @@
                         Underwent five years of a comprehensive medical curriculum comprising two pre-clinical years of foundational anatomy, physiology, and pathology followed by three years of rigorous hospital rotations across tertiary and district healthcare networks. Achieved the Dean's List across all academic semesters and graduated with First Class Honours (3.76 CGPA).
                     </p>
 
-                    <!-- Honour Tags -->
                     <div class="flex flex-wrap gap-3">
                         <span class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-emerald-50 text-emerald-900 border border-emerald-200 text-xs font-bold font-heading">
                             <i class="fa-solid fa-award text-emerald-600"></i> First Class Honours (3.76 CGPA)
@@ -308,7 +317,6 @@
                     </div>
                 </div>
 
-                <!-- Taiwan Overseas Elective -->
                 <div class="md:col-span-12 bg-white border border-slate-200 rounded-2xl p-7 md:p-8 shadow-card hover-lift reveal delay-100">
                     <div class="flex flex-col md:flex-row md:items-start justify-between gap-4 mb-4">
                         <div class="flex items-start gap-4">
@@ -329,7 +337,6 @@
                     </p>
                 </div>
 
-                <!-- Johor Matriculation College (British English) -->
                 <div class="md:col-span-6 bg-slate-50 border border-slate-200 rounded-2xl p-7 flex flex-col justify-between shadow-card hover-lift reveal">
                     <div>
                         <div class="flex justify-between items-start mb-3">
@@ -350,7 +357,6 @@
                     </div>
                 </div>
 
-                <!-- Catholic High School Petaling Jaya (British English) -->
                 <div class="md:col-span-6 bg-slate-50 border border-slate-200 rounded-2xl p-7 flex flex-col justify-between shadow-card hover-lift reveal delay-100">
                     <div>
                         <div class="flex justify-between items-start mb-3">
@@ -380,7 +386,6 @@
                         </div>
                     </div>
                 </div>
-
             </div>
         </div>
     </section>
@@ -395,8 +400,6 @@
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12 items-stretch">
-                
-                <!-- Workshop 1 -->
                 <div class="bg-white border border-slate-200 rounded-2xl p-7 hover-lift reveal">
                     <div class="flex justify-between items-start mb-3">
                         <span class="text-xs font-bold text-clinical-700 uppercase tracking-wider font-heading">Medical Simulation &amp; Ethics</span>
@@ -408,7 +411,6 @@
                     </p>
                 </div>
 
-                <!-- Workshop 2 -->
                 <div class="bg-white border border-slate-200 rounded-2xl p-7 hover-lift reveal delay-100">
                     <div class="flex justify-between items-start mb-3">
                         <span class="text-xs font-bold text-clinical-700 uppercase tracking-wider font-heading">Anatomical Training</span>
@@ -420,7 +422,6 @@
                     </p>
                 </div>
 
-                <!-- Workshop 3 -->
                 <div class="bg-white border border-slate-200 rounded-2xl p-7 hover-lift reveal">
                     <div class="flex justify-between items-start mb-3">
                         <span class="text-xs font-bold text-clinical-700 uppercase tracking-wider font-heading">Basic Surgical Training</span>
@@ -433,7 +434,6 @@
                     </p>
                 </div>
 
-                <!-- Workshop 4 -->
                 <div class="bg-white border border-slate-200 rounded-2xl p-7 hover-lift reveal delay-100">
                     <div class="flex justify-between items-start mb-3">
                         <span class="text-xs font-bold text-clinical-700 uppercase tracking-wider font-heading">Scientific Conference</span>
@@ -445,10 +445,8 @@
                         Attended plenary sessions and symposiums on minimally invasive image-guided techniques, endovascular procedures, and interventional radiological management in acute haemorrhage and oncology.
                     </p>
                 </div>
-
             </div>
 
-            <!-- International Exchange & Academic Competitions Strip -->
             <div class="bg-clinical-900 text-white rounded-2xl p-8 md:p-9 shadow-card reveal">
                 <div class="flex items-center gap-3 mb-6">
                     <div class="w-10 h-10 rounded-lg bg-clinical-700 text-clinical-100 flex items-center justify-center text-lg">
@@ -479,21 +477,17 @@
                     </div>
                 </div>
             </div>
-
         </div>
     </section>
 
     <!-- ========================================================================= -->
-    <!-- KYDP SCENARIO 1 SECTION (CLINICAL SKY BLUE & DEEP NAVY THEME)             -->
+    <!-- KYDP SCENARIO 1 SECTION (IHH HEALTHCARE STRATEGIC SUSTAINABILITY)         -->
     <!-- ========================================================================= -->
     <section id="kydp-s1" class="py-24 bg-slate-950 text-white relative overflow-hidden scroll-mt-20">
-        <!-- Clinical Blue Ambient Lighting Glows -->
         <div class="absolute -top-32 -right-32 w-[600px] h-[600px] bg-clinical-600/15 rounded-full filter blur-[120px] pointer-events-none"></div>
         <div class="absolute -bottom-32 -left-32 w-[600px] h-[600px] bg-sky-800/15 rounded-full filter blur-[120px] pointer-events-none"></div>
 
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            
-            <!-- Scenario 1 Header -->
             <div class="text-center max-w-3xl mx-auto mb-16 reveal">
                 <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-clinical-950 border border-clinical-600/40 text-clinical-300 text-xs font-bold font-heading uppercase tracking-widest mb-4">
                     <i class="fa-solid fa-chart-line text-[11px]"></i> Corporate Up-skilling &amp; Strategy &bull; Scenario 1
@@ -507,7 +501,6 @@
                 <div class="w-20 h-1 bg-clinical-500 mx-auto mt-4 rounded-full"></div>
             </div>
 
-            <!-- Scenario 1 Role Overview Card -->
             <div class="bg-slate-900/90 border border-slate-800 rounded-3xl p-8 sm:p-10 mb-16 shadow-2xl backdrop-blur-md reveal">
                 <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
                     <div class="lg:col-span-3 flex justify-center">
@@ -531,7 +524,6 @@
                 </div>
             </div>
 
-            <!-- Scenario 1: Written Portfolio -->
             <div class="mb-20">
                 <div class="flex items-center justify-between pb-4 border-b border-slate-800 mb-8 reveal">
                     <div class="flex items-center gap-3">
@@ -546,92 +538,68 @@
                 </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-6 items-stretch">
-                    
-                    <!-- Document 1: Email -->
                     <div class="bg-slate-900 border border-slate-800 hover:border-clinical-600/50 rounded-2xl p-6 flex flex-col justify-between hover-lift reveal transition duration-300">
                         <div>
                             <div class="flex justify-between items-start mb-4">
-                                <span class="px-2.5 py-1 bg-clinical-950 text-clinical-400 border border-clinical-800/80 rounded text-[11px] font-bold font-heading uppercase">
-                                    Delivery Email
-                                </span>
+                                <span class="px-2.5 py-1 bg-clinical-950 text-clinical-400 border border-clinical-800/80 rounded text-[11px] font-bold font-heading uppercase">Delivery Email</span>
                                 <span class="text-slate-500 text-xs"><i class="fa-solid fa-paperclip mr-1"></i>1 Page</span>
                             </div>
                             <h4 class="text-lg font-bold font-heading text-white mb-2">Campaign Delivery Email</h4>
                             <p class="text-slate-400 text-xs text-justify-clinical leading-relaxed mb-6 font-light">
-                                Formal email to the Marketing Department introducing the sustainability insights memo. Excludes internal metrics and frames high-impact achievements (Life Renewed, electric ambulance, and AI diagnostics) across four strategic customer-facing pillars.
+                                Formal email to the Marketing Department introducing the sustainability insights memo. Excludes internal metrics and frames high-impact achievements across four strategic customer-facing pillars.
                             </p>
                         </div>
                         <div class="pt-4 border-t border-slate-800/80 flex items-center justify-between">
                             <span class="text-[11px] text-slate-500 truncate max-w-[150px]">S1_email_Kendron Koay.pdf</span>
                             <div class="flex gap-2">
-                                <button onclick="openModal('pdf1')" class="px-3 py-1.5 bg-slate-800 hover:bg-slate-700 text-white rounded-lg text-xs font-heading font-semibold transition" title="Preview Summary">
-                                    <i class="fa-regular fa-eye mr-1"></i> View
-                                </button>
-                                <a href="S1_email_Kendron Koay.pdf" target="_blank" download class="px-3 py-1.5 bg-clinical-600 hover:bg-clinical-500 text-white rounded-lg text-xs font-heading font-semibold transition" title="Download Document">
-                                    <i class="fa-solid fa-download"></i>
-                                </a>
+                                <button onclick="openModal('pdf1')" class="px-3 py-1.5 bg-slate-800 hover:bg-slate-700 text-white rounded-lg text-xs font-heading font-semibold transition"><i class="fa-regular fa-eye mr-1"></i> View</button>
+                                <a href="S1_email_Kendron Koay.pdf" target="_blank" download class="px-3 py-1.5 bg-clinical-600 hover:bg-clinical-500 text-white rounded-lg text-xs font-heading font-semibold transition"><i class="fa-solid fa-download"></i></a>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Document 2: Memo -->
                     <div class="bg-slate-900 border border-slate-800 hover:border-clinical-600/50 rounded-2xl p-6 flex flex-col justify-between hover-lift reveal delay-100 transition duration-300">
                         <div>
                             <div class="flex justify-between items-start mb-4">
-                                <span class="px-2.5 py-1 bg-clinical-950 text-clinical-400 border border-clinical-800/80 rounded text-[11px] font-bold font-heading uppercase">
-                                    Executive Memo
-                                </span>
+                                <span class="px-2.5 py-1 bg-clinical-950 text-clinical-400 border border-clinical-800/80 rounded text-[11px] font-bold font-heading uppercase">Executive Memo</span>
                                 <span class="text-slate-500 text-xs"><i class="fa-solid fa-paperclip mr-1"></i>1 Page</span>
                             </div>
                             <h4 class="text-lg font-bold font-heading text-white mb-2">Strategic Sustainability Memo</h4>
                             <p class="text-slate-400 text-xs text-justify-clinical leading-relaxed mb-6 font-light">
-                                Actionable one-page memorandum categorising sustainability data into Innovation (AI chest X-ray detection and smart fall prevention), Community (946 cancer cases and 3.1M screenings), Environment (electric bike ambulance and 90% plastic drop), and Global Accolades (TIME &amp; Forbes).
+                                Actionable one-page memorandum categorising sustainability data into Innovation, Community, Environment, and Global Accolades.
                             </p>
                         </div>
                         <div class="pt-4 border-t border-slate-800/80 flex items-center justify-between">
                             <span class="text-[11px] text-slate-500 truncate max-w-[150px]">S1_memo_Kendron Koay.pdf</span>
                             <div class="flex gap-2">
-                                <button onclick="openModal('pdf2')" class="px-3 py-1.5 bg-slate-800 hover:bg-slate-700 text-white rounded-lg text-xs font-heading font-semibold transition" title="Preview Summary">
-                                    <i class="fa-regular fa-eye mr-1"></i> View
-                                </button>
-                                <a href="S1_memo_Kendron Koay.pdf" target="_blank" download class="px-3 py-1.5 bg-clinical-600 hover:bg-clinical-500 text-white rounded-lg text-xs font-heading font-semibold transition" title="Download Document">
-                                    <i class="fa-solid fa-download"></i>
-                                </a>
+                                <button onclick="openModal('pdf2')" class="px-3 py-1.5 bg-slate-800 hover:bg-slate-700 text-white rounded-lg text-xs font-heading font-semibold transition"><i class="fa-regular fa-eye mr-1"></i> View</button>
+                                <a href="S1_memo_Kendron Koay.pdf" target="_blank" download class="px-3 py-1.5 bg-clinical-600 hover:bg-clinical-500 text-white rounded-lg text-xs font-heading font-semibold transition"><i class="fa-solid fa-download"></i></a>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Document 3: Primer -->
                     <div class="bg-slate-900 border border-slate-800 hover:border-clinical-600/50 rounded-2xl p-6 flex flex-col justify-between hover-lift reveal delay-200 transition duration-300">
                         <div>
                             <div class="flex justify-between items-start mb-4">
-                                <span class="px-2.5 py-1 bg-clinical-950 text-clinical-400 border border-clinical-800/80 rounded text-[11px] font-bold font-heading uppercase">
-                                    Company Primer
-                                </span>
+                                <span class="px-2.5 py-1 bg-clinical-950 text-clinical-400 border border-clinical-800/80 rounded text-[11px] font-bold font-heading uppercase">Company Primer</span>
                                 <span class="text-slate-500 text-xs"><i class="fa-solid fa-paperclip mr-1"></i>7 Pages</span>
                             </div>
                             <h4 class="text-lg font-bold font-heading text-white mb-2">IHH Healthcare Onboarding Primer</h4>
                             <p class="text-slate-400 text-xs text-justify-clinical leading-relaxed mb-6 font-light">
-                                In-depth seven-page orientation guide welcoming new executives. Outlines IHH's identity across 80+ hospitals in 10 countries, the "Care. For Good." sustainability architecture, psychological safety, and leadership development programmes.
+                                In-depth seven-page orientation guide welcoming new executives across 80+ hospitals in 10 countries.
                             </p>
                         </div>
                         <div class="pt-4 border-t border-slate-800/80 flex items-center justify-between">
                             <span class="text-[11px] text-slate-500 truncate max-w-[150px]">S1_primer_Kendron Koay.pdf</span>
                             <div class="flex gap-2">
-                                <button onclick="openModal('pdf3')" class="px-3 py-1.5 bg-slate-800 hover:bg-slate-700 text-white rounded-lg text-xs font-heading font-semibold transition" title="Preview Summary">
-                                    <i class="fa-regular fa-eye mr-1"></i> View
-                                </button>
-                                <a href="S1_primer_Kendron Koay.pdf" target="_blank" download class="px-3 py-1.5 bg-clinical-600 hover:bg-clinical-500 text-white rounded-lg text-xs font-heading font-semibold transition" title="Download Document">
-                                    <i class="fa-solid fa-download"></i>
-                                </a>
+                                <button onclick="openModal('pdf3')" class="px-3 py-1.5 bg-slate-800 hover:bg-slate-700 text-white rounded-lg text-xs font-heading font-semibold transition"><i class="fa-regular fa-eye mr-1"></i> View</button>
+                                <a href="S1_primer_Kendron Koay.pdf" target="_blank" download class="px-3 py-1.5 bg-clinical-600 hover:bg-clinical-500 text-white rounded-lg text-xs font-heading font-semibold transition"><i class="fa-solid fa-download"></i></a>
                             </div>
                         </div>
                     </div>
-
                 </div>
             </div>
 
-            <!-- Scenario 1: Visual Portfolio -->
             <div>
                 <div class="flex items-center justify-between pb-4 border-b border-slate-800 mb-8 reveal">
                     <div class="flex items-center gap-3">
@@ -646,22 +614,17 @@
                 </div>
 
                 <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
-                    
-                    <!-- Video 1: Reflection Journal -->
                     <div class="lg:col-span-5 bg-slate-900 border border-slate-800 rounded-3xl p-6 flex flex-col justify-between reveal">
                         <div>
                             <div class="flex justify-between items-center mb-4">
-                                <span class="px-3 py-1 bg-clinical-950 text-clinical-400 border border-clinical-800 rounded text-xs font-bold font-heading uppercase">
-                                    Reflection Journal
-                                </span>
+                                <span class="px-3 py-1 bg-clinical-950 text-clinical-400 border border-clinical-800 rounded text-xs font-bold font-heading uppercase">Reflection Journal</span>
                                 <span class="text-xs text-slate-400"><i class="fa-regular fa-clock mr-1"></i>03:06</span>
                             </div>
                             <h4 class="text-lg font-bold font-heading text-white mb-2">Video Reflection Journal</h4>
                             <p class="text-slate-400 text-xs text-justify-clinical leading-relaxed mb-4 font-light">
-                                Personal verbal reflection assessing three critical skill learnings: the Diverge and Converge problem-solving model, data extraction via generative AI, and the STAR elevator pitch delivery.
+                                Personal verbal reflection assessing critical skill learnings and STAR elevator pitch delivery.
                             </p>
                         </div>
-                        
                         <div>
                             <div class="w-full max-w-[340px] mx-auto aspect-[9/16] bg-black rounded-2xl overflow-hidden border border-slate-800 shadow-2xl relative flex items-center justify-center">
                                 <video controls playsinline preload="metadata" class="w-full h-full object-contain rounded-2xl" poster="IMG_20260821_174246.jpg">
@@ -669,35 +632,27 @@
                                     Your browser does not support HTML5 video playback.
                                 </video>
                             </div>
-                            <div class="text-center mt-3">
-                                <span class="text-[11px] text-slate-400 font-mono">S1_video reflection_Kendron Koay.mp4</span>
-                            </div>
+                            <div class="text-center mt-3"><span class="text-[11px] text-slate-400 font-mono">S1_video reflection_Kendron Koay.mp4</span></div>
                         </div>
                     </div>
 
-                    <!-- Video 2: Company Orientation / Sustainability Video -->
                     <div class="lg:col-span-7 bg-slate-900 border border-slate-800 rounded-3xl p-6 flex flex-col justify-between reveal delay-100">
                         <div>
                             <div class="flex justify-between items-center mb-4">
-                                <span class="px-3 py-1 bg-clinical-950 text-clinical-400 border border-clinical-800 rounded text-xs font-bold font-heading uppercase">
-                                    Visual Asset
-                                </span>
+                                <span class="px-3 py-1 bg-clinical-950 text-clinical-400 border border-clinical-800 rounded text-xs font-bold font-heading uppercase">Visual Asset</span>
                                 <span class="text-xs text-slate-400"><i class="fa-regular fa-clock mr-1"></i>01:45</span>
                             </div>
                             <h4 class="text-lg font-bold font-heading text-white mb-2">IHH Healthcare Welcome &amp; Sustainability Video</h4>
                             <p class="text-slate-400 text-xs text-justify-clinical leading-relaxed mb-4 font-light">
-                                Synthesia AI-powered corporate orientation video produced to induct incoming executives. Highlights the 80+ hospital network scale, patient safety initiatives, desflurane gas reduction, and the first 90-day mindset.
+                                Synthesia AI-powered corporate orientation video produced to induct incoming executives.
                             </p>
-                            
                             <div class="w-full aspect-video bg-black rounded-2xl overflow-hidden border border-slate-800 shadow-2xl relative flex items-center justify-center">
                                 <video controls playsinline preload="metadata" class="w-full h-full object-contain rounded-2xl">
                                     <source src="S1_video_Kendron Koay.mp4" type="video/mp4">
                                     Your browser does not support HTML5 video playback.
                                 </video>
                             </div>
-                            <div class="text-center mt-3">
-                                <span class="text-[11px] text-slate-400 font-mono">S1_video_Kendron Koay.mp4</span>
-                            </div>
+                            <div class="text-center mt-3"><span class="text-[11px] text-slate-400 font-mono">S1_video_Kendron Koay.mp4</span></div>
                         </div>
 
                         <div class="mt-6 p-4 rounded-xl bg-slate-950/70 border border-slate-800 text-xs space-y-2">
@@ -710,25 +665,19 @@
                             </div>
                         </div>
                     </div>
-
                 </div>
             </div>
-
         </div>
     </section>
 
     <!-- ========================================================================= -->
-    <!-- KYDP SCENARIO 2 SECTION (MAYBANK EXECUTIVE GOLD & CHARCOAL THEME)         -->
-    <!-- (100% Parallel Structure with Scenario 1, Distinct Gold Colour Palette)   -->
+    <!-- KYDP SCENARIO 2 SECTION (MAYBANK RETAIL BANKING & CLIENT ADVISORY)        -->
     <!-- ========================================================================= -->
     <section id="kydp-s2" class="py-24 bg-slate-900 text-white border-t border-amber-500/20 relative overflow-hidden scroll-mt-20">
-        <!-- Maybank Warm Gold Ambient Lighting Glows -->
         <div class="absolute -top-32 -left-32 w-[600px] h-[600px] bg-amber-500/10 rounded-full filter blur-[130px] pointer-events-none"></div>
         <div class="absolute -bottom-32 -right-32 w-[600px] h-[600px] bg-yellow-600/10 rounded-full filter blur-[130px] pointer-events-none"></div>
 
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            
-            <!-- Scenario 2 Header (Identical Structure to Scenario 1, Styled in Maybank Gold) -->
             <div class="text-center max-w-3xl mx-auto mb-16 reveal">
                 <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-950 border border-amber-500/40 text-amber-300 text-xs font-bold font-heading uppercase tracking-widest mb-4">
                     <i class="fa-solid fa-handshake-angle text-[11px] text-amber-400"></i> Corporate Up-skilling &amp; Strategy &bull; Scenario 2
@@ -742,7 +691,6 @@
                 <div class="w-20 h-1 bg-amber-400 mx-auto mt-4 rounded-full"></div>
             </div>
 
-            <!-- Scenario 2 Role Overview Card (Styled in Charcoal & Gold) -->
             <div class="bg-slate-950/90 border border-amber-500/25 rounded-3xl p-8 sm:p-10 mb-16 shadow-2xl backdrop-blur-md reveal">
                 <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
                     <div class="lg:col-span-3 flex justify-center">
@@ -754,7 +702,7 @@
                         <span class="text-xs font-bold text-amber-400 uppercase tracking-widest font-heading block mb-1">Relationship Manager Role Simulation</span>
                         <h4 class="text-2xl sm:text-3xl font-bold font-heading text-white mb-3">Consultative First-Home Financing for Norman Umar</h4>
                         <p class="text-slate-300 text-sm md:text-base text-justify-clinical leading-relaxed font-light mb-5">
-                            In Scenario 2 of the K-Youth Development Programme (KYDP), I stepped into the role of a <strong class="text-white font-medium">Relationship Manager at Maybank</strong> advising <strong class="text-white font-medium">Norman Umar</strong>, a 30-year-old accountant seeking mortgage financing for his first property &ndash; a <strong class="text-white font-medium">RM500,000 eco-friendly condominium in Kuala Lumpur</strong>. Using the <strong class="text-amber-300 font-medium">Converge Matrix</strong>, I evaluated Maybank's retail mortgage suite against Norman's financial profile (RM80,000 annual income, RM75,000 ready downpayment, existing personal loan, car loan, and credit card commitments, and a 25-year preferred tenure) to synthesise a comprehensive customer profile, design a tailored product brochure, deliver a consultative sales pitch, and navigate live unexpected client objections.
+                            In Scenario 2 of the K-Youth Development Programme (KYDP), I stepped into the role of a <strong class="text-white font-medium">Relationship Manager at Maybank</strong> advising <strong class="text-white font-medium">Norman Umar</strong>, a 30-year-old accountant seeking mortgage financing for his first property &ndash; a <strong class="text-white font-medium">RM500,000 eco-friendly condominium in Kuala Lumpur</strong>. Using the <strong class="text-amber-300 font-medium">Converge Matrix</strong>, I evaluated Maybank's retail mortgage suite against Norman's financial profile.
                         </p>
                         <div class="flex flex-wrap gap-2 justify-center lg:justify-start">
                             <span class="px-3 py-1 bg-slate-900 text-amber-200 text-xs rounded-md border border-amber-500/30">Customer Profile Synthesis</span>
@@ -767,7 +715,6 @@
                 </div>
             </div>
 
-            <!-- Scenario 2: Written Portfolio (Customer Profile Synthesis) -->
             <div class="mb-20">
                 <div class="flex items-center justify-between pb-4 border-b border-slate-800 mb-8 reveal">
                     <div class="flex items-center gap-3">
@@ -781,10 +728,8 @@
                     </div>
                 </div>
 
-                <div class="bg-slate-950 border border-slate-800 hover:border-amber-500/40 rounded-3xl p-6 sm:p-8 shadow-2xl hover-lift-gold reveal transition duration-300">
+                <div class="bg-slate-950 border border-slate-800 hover:border-amber-500/40 rounded-3xl p-6 sm:p-8 shadow-2xl reveal transition duration-300">
                     <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-                        
-                        <!-- Left: Customer Profile Image Preview -->
                         <div class="lg:col-span-7">
                             <div class="rounded-2xl overflow-hidden border border-slate-800 bg-black cursor-pointer group relative" onclick="openImageModal('Customer Profile A Norman Umar.png', 'KYDP Scenario 2 &bull; Customer Profile A: Norman Umar')">
                                 <img src="Customer Profile A Norman Umar.png" alt="Customer Profile A: Norman Umar" class="w-full h-auto object-contain transition duration-500 group-hover:scale-[1.01]">
@@ -797,41 +742,31 @@
                             <div class="flex items-center justify-between mt-3 px-1">
                                 <span class="text-[11px] text-slate-400 font-mono">Customer Profile A Norman Umar.png</span>
                                 <div class="flex gap-2">
-                                    <button onclick="openImageModal('Customer Profile A Norman Umar.png', 'KYDP Scenario 2 &bull; Customer Profile A: Norman Umar')" class="px-3 py-1.5 bg-slate-800 hover:bg-slate-700 text-white rounded-lg text-xs font-heading font-semibold transition">
-                                        <i class="fa-solid fa-expand mr-1 text-amber-400"></i> Fullscreen
-                                    </button>
-                                    <a href="Customer Profile A Norman Umar.png" target="_blank" download class="px-3 py-1.5 bg-amber-400 hover:bg-amber-300 text-slate-950 rounded-lg text-xs font-heading font-bold transition">
-                                        <i class="fa-solid fa-download"></i>
-                                    </a>
+                                    <button onclick="openImageModal('Customer Profile A Norman Umar.png', 'KYDP Scenario 2 &bull; Customer Profile A: Norman Umar')" class="px-3 py-1.5 bg-slate-800 hover:bg-slate-700 text-white rounded-lg text-xs font-heading font-semibold transition"><i class="fa-solid fa-expand mr-1 text-amber-400"></i> Fullscreen</button>
+                                    <a href="Customer Profile A Norman Umar.png" target="_blank" download class="px-3 py-1.5 bg-amber-400 hover:bg-amber-300 text-slate-950 rounded-lg text-xs font-heading font-bold transition"><i class="fa-solid fa-download"></i></a>
                                 </div>
                             </div>
                         </div>
 
-                        <!-- Right: Written Synthesis Summary -->
                         <div class="lg:col-span-5 space-y-4">
-                            <div class="inline-flex items-center gap-2 px-2.5 py-1 bg-amber-500/10 text-amber-300 border border-amber-500/30 rounded text-[11px] font-bold font-heading uppercase">
-                                Customer Profile Synthesis
-                            </div>
+                            <div class="inline-flex items-center gap-2 px-2.5 py-1 bg-amber-500/10 text-amber-300 border border-amber-500/30 rounded text-[11px] font-bold font-heading uppercase">Customer Profile Synthesis</div>
                             <h4 class="text-xl font-bold font-heading text-white">Customer Profile A: Norman Umar</h4>
                             <p class="text-slate-400 text-xs sm:text-sm text-justify-clinical leading-relaxed font-light">
                                 Synthesised raw market research data into a structured client persona for <strong class="text-white font-medium">Norman Umar</strong> (30-year-old single Malaysian CPA accountant at XYZ Accounting Firm, University of Malaya graduate) to guide product selection and brand messaging.
                             </p>
-
                             <div class="p-4 rounded-2xl bg-slate-900 border border-slate-800 text-xs space-y-2">
                                 <div class="font-bold text-amber-300 font-heading uppercase tracking-wider text-[11px]">Synthesised Financial Parameters:</div>
                                 <ul class="space-y-1.5 text-slate-300 text-justify-clinical font-light">
                                     <li>&bull; <strong class="text-white font-medium">Income &amp; Liquid Assets:</strong> RM80,000 annual income; RM15,000 current account, RM30,000 savings, RM10,000 stocks, and RM75,000 ready downpayment.</li>
-                                    <li>&bull; <strong class="text-white font-medium">Existing Commitments:</strong> RM20,000 personal loan, RM50,000 car loan, and RM5,000 credit card balance (RM2,000 average monthly spend).</li>
-                                    <li>&bull; <strong class="text-white font-medium">Purchase Drivers:</strong> Targets a RM500,000 KL condominium over a 25-year tenure with an indicative rate below 3.90% p.a., digital convenience, and cash-flow stability.</li>
+                                    <li>&bull; <strong class="text-white font-medium">Existing Commitments:</strong> RM20,000 personal loan, RM50,000 car loan, and RM5,000 credit card balance.</li>
+                                    <li>&bull; <strong class="text-white font-medium">Purchase Drivers:</strong> Targets a RM500,000 KL condominium over a 25-year tenure with an indicative rate below 3.90% p.a.</li>
                                 </ul>
                             </div>
                         </div>
-
                     </div>
                 </div>
             </div>
 
-            <!-- Scenario 2: Visual Portfolio (Product Brochure, Sales Pitch & Objection Handling) -->
             <div>
                 <div class="flex items-center justify-between pb-4 border-b border-slate-800 mb-8 reveal">
                     <div class="flex items-center gap-3">
@@ -845,116 +780,367 @@
                     </div>
                 </div>
 
-                <!-- Visual Deliverable 1: Tailored Product Brochure Card -->
-                <div class="bg-slate-950 border border-slate-800 hover:border-amber-500/40 rounded-3xl p-6 sm:p-8 mb-8 shadow-2xl hover-lift-gold reveal transition duration-300">
+                <div class="bg-slate-950 border border-slate-800 hover:border-amber-500/40 rounded-3xl p-6 sm:p-8 mb-8 shadow-2xl reveal transition duration-300">
                     <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-5">
                         <div>
-                            <span class="px-3 py-1 bg-amber-500/10 text-amber-300 border border-amber-500/30 rounded text-xs font-bold font-heading uppercase inline-block mb-2">
-                                Visual Asset 1 &bull; Product Brochure
-                            </span>
+                            <span class="px-3 py-1 bg-amber-500/10 text-amber-300 border border-amber-500/30 rounded text-xs font-bold font-heading uppercase inline-block mb-2">Visual Asset 1 &bull; Product Brochure</span>
                             <h4 class="text-xl font-bold font-heading text-white">Personalised Maybank Home Financing Brochure</h4>
                         </div>
                         <div class="flex gap-2 self-start sm:self-auto">
-                            <button onclick="openImageModal('S2_brochure_Kendron Koay.png', 'KYDP Scenario 2 &bull; Personalised Maybank Home Financing Brochure')" class="px-3.5 py-2 bg-slate-800 hover:bg-slate-700 text-white rounded-xl text-xs font-heading font-semibold transition flex items-center gap-1.5">
-                                <i class="fa-solid fa-expand text-amber-400"></i> Fullscreen View
-                            </button>
-                            <a href="S2_brochure_Kendron Koay.png" target="_blank" download class="px-3.5 py-2 bg-amber-400 hover:bg-amber-300 text-slate-950 rounded-xl text-xs font-heading font-bold transition flex items-center gap-1.5">
-                                <i class="fa-solid fa-download"></i> Download PNG
-                            </a>
+                            <button onclick="openImageModal('S2_brochure_Kendron Koay.png', 'KYDP Scenario 2 &bull; Personalised Maybank Home Financing Brochure')" class="px-3.5 py-2 bg-slate-800 hover:bg-slate-700 text-white rounded-xl text-xs font-heading font-semibold transition flex items-center gap-1.5"><i class="fa-solid fa-expand text-amber-400"></i> Fullscreen View</button>
+                            <a href="S2_brochure_Kendron Koay.png" target="_blank" download class="px-3.5 py-2 bg-amber-400 hover:bg-amber-300 text-slate-950 rounded-xl text-xs font-heading font-bold transition flex items-center gap-1.5"><i class="fa-solid fa-download"></i> Download PNG</a>
                         </div>
                     </div>
 
                     <p class="text-slate-400 text-xs sm:text-sm text-justify-clinical leading-relaxed mb-6 font-light">
-                        Custom-designed visual product brochure tailored to Norman Umar's first-home priorities. Recommends <strong class="text-white font-medium">Maybank MaxiHome (Term Loan structure)</strong> for an 85% financing need (RM425,000) with a RM75,000 downpayment over a 25-year tenure, illustrating monthly repayment sensitivity at <strong class="text-white font-medium">3.90% p.a. (~RM2,220/month)</strong> versus <strong class="text-white font-medium">4.45% p.a. (~RM2,350/month)</strong> alongside the <strong class="text-white font-medium">MaxiHome Flexi Loan</strong> alternative and a 4-step digital application roadmap via MAE and Home2u.
+                        Custom-designed visual product brochure tailored to Norman Umar's first-home priorities. Recommends <strong class="text-white font-medium">Maybank MaxiHome (Term Loan structure)</strong> for an 85% financing need (RM425,000) over a 25-year tenure.
                     </p>
 
-                    <!-- Brochure Image Container -->
                     <div class="rounded-2xl overflow-hidden border border-slate-800 bg-black cursor-pointer group relative" onclick="openImageModal('S2_brochure_Kendron Koay.png', 'KYDP Scenario 2 &bull; Personalised Maybank Home Financing Brochure')">
-                        <img src="S2_brochure_Kendron Koay.png" alt="Maybank Home Financing Brochure Personalised for Norman Umar" class="w-full h-auto object-contain transition duration-500 group-hover:scale-[1.01]">
+                        <img src="S2_brochure_Kendron Koay.png" alt="Maybank Home Financing Brochure" class="w-full h-auto object-contain transition duration-500 group-hover:scale-[1.01]">
                         <div class="absolute inset-0 bg-slate-950/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
                             <span class="px-5 py-2.5 bg-amber-400 text-slate-950 font-heading font-bold text-xs uppercase tracking-wider rounded-full shadow-lg flex items-center gap-2">
                                 <i class="fa-solid fa-magnifying-glass-plus"></i> Click to Inspect Full Resolution Brochure
                             </span>
                         </div>
                     </div>
-                    <div class="text-center mt-3">
-                        <span class="text-[11px] text-slate-400 font-mono">S2_brochure_Kendron Koay.png</span>
-                    </div>
+                    <div class="text-center mt-3"><span class="text-[11px] text-slate-400 font-mono">S2_brochure_Kendron Koay.png</span></div>
                 </div>
 
-                <!-- Visual Deliverables 2 & 3: Sales Pitch Video & Objection Handling Video -->
                 <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
-                    
-                    <!-- Video 1: Sales Pitch -->
-                    <div class="lg:col-span-6 bg-slate-950 border border-slate-800 hover:border-amber-500/40 rounded-3xl p-6 flex flex-col justify-between hover-lift-gold reveal transition duration-300">
+                    <div class="lg:col-span-6 bg-slate-950 border border-slate-800 hover:border-amber-500/40 rounded-3xl p-6 flex flex-col justify-between reveal transition duration-300">
                         <div>
                             <div class="flex justify-between items-center mb-4">
-                                <span class="px-3 py-1 bg-amber-500/10 text-amber-300 border border-amber-500/30 rounded text-xs font-bold font-heading uppercase">
-                                    Visual Asset 2 &bull; Sales Pitch
-                                </span>
+                                <span class="px-3 py-1 bg-amber-500/10 text-amber-300 border border-amber-500/30 rounded text-xs font-bold font-heading uppercase">Visual Asset 2 &bull; Sales Pitch</span>
                                 <span class="text-xs text-slate-400"><i class="fa-regular fa-clock mr-1 text-amber-400"></i>02:45</span>
                             </div>
                             <h4 class="text-lg font-bold font-heading text-white mb-2">Consultative Mortgage Sales Pitch</h4>
                             <p class="text-slate-400 text-xs text-justify-clinical leading-relaxed mb-4 font-light">
-                                Structured two-minute consultative pitch reframing Norman's home-buying decision from <em>"How much can I borrow?"</em> to <em>"How can I own the home I want while still remaining financially comfortable afterwards?"</em> Walks through the RM425,000 Maybank MaxiHome recommendation, rate sensitivity illustrations (RM2,220 at 3.90% p.a. vs RM2,350 at 4.45% p.a.), and digital application tracking via MAE and Home2u.
+                                Structured two-minute consultative pitch reframing Norman's home-buying decision for maximum comfort and affordability.
                             </p>
-
                             <div class="w-full aspect-video bg-black rounded-2xl overflow-hidden border border-slate-800 shadow-2xl relative flex items-center justify-center">
                                 <video controls playsinline preload="metadata" class="w-full h-full object-contain rounded-2xl">
                                     <source src="S2_sales pitch_Kendron Koay.mp4" type="video/mp4">
                                     Your browser does not support HTML5 video playback.
                                 </video>
                             </div>
-                            <div class="text-center mt-3 mb-5">
-                                <span class="text-[11px] text-slate-400 font-mono">S2_sales pitch_Kendron Koay.mp4</span>
-                            </div>
+                            <div class="text-center mt-3 mb-5"><span class="text-[11px] text-slate-400 font-mono">S2_sales pitch_Kendron Koay.mp4</span></div>
                         </div>
-
                         <div class="p-4 rounded-xl bg-slate-900 border border-slate-800 text-xs space-y-2">
                             <div class="font-bold text-amber-300 font-heading uppercase tracking-wider text-[11px]">Key Consultative Pitch Milestones:</div>
                             <div class="space-y-1.5 text-slate-300 text-justify-clinical font-light">
-                                <div>&bull; <strong class="text-white font-medium">Cash-Flow Discipline:</strong> Protects monthly savings and investments alongside personal loan, car loan, and credit card commitments.</div>
+                                <div>&bull; <strong class="text-white font-medium">Cash-Flow Discipline:</strong> Protects monthly savings alongside personal loan and car loan commitments.</div>
                                 <div>&bull; <strong class="text-white font-medium">Rate Transparency:</strong> Distinguishes indicative planning rates from final Letter of Offer terms.</div>
-                                <div>&bull; <strong class="text-white font-medium">Actionable Next Step:</strong> Proposes an initial eligibility and affordability assessment before commitment.</div>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Video 2: Objection Handling -->
-                    <div class="lg:col-span-6 bg-slate-950 border border-slate-800 hover:border-amber-500/40 rounded-3xl p-6 flex flex-col justify-between hover-lift-gold reveal delay-100 transition duration-300">
+                    <div class="lg:col-span-6 bg-slate-950 border border-slate-800 hover:border-amber-500/40 rounded-3xl p-6 flex flex-col justify-between reveal delay-100 transition duration-300">
                         <div>
                             <div class="flex justify-between items-center mb-4">
-                                <span class="px-3 py-1 bg-amber-500/10 text-amber-300 border border-amber-500/30 rounded text-xs font-bold font-heading uppercase">
-                                    Visual Asset 3 &bull; Objection Handling
-                                </span>
+                                <span class="px-3 py-1 bg-amber-500/10 text-amber-300 border border-amber-500/30 rounded text-xs font-bold font-heading uppercase">Visual Asset 3 &bull; Objection Handling</span>
                                 <span class="text-xs text-slate-400"><i class="fa-regular fa-clock mr-1 text-amber-400"></i>07:00</span>
                             </div>
                             <h4 class="text-lg font-bold font-heading text-white mb-2">Live Client Objection Handling Roleplay</h4>
                             <p class="text-slate-400 text-xs text-justify-clinical leading-relaxed mb-4 font-light">
-                                Live interactive roleplay session demonstrating active listening, empathy, and professional composure while resolving four unexpected client objections raised by Norman regarding upfront cash depletion, hidden fees, customer service responsiveness, and loan approval timelines.
+                                Live interactive roleplay demonstrating active listening, empathy, and professional composure resolving four unexpected client objections.
                             </p>
-
                             <div class="w-full aspect-video bg-black rounded-2xl overflow-hidden border border-slate-800 shadow-2xl relative flex items-center justify-center">
                                 <video controls playsinline preload="metadata" class="w-full h-full object-contain rounded-2xl">
                                     <source src="S2_objection handling_Kendron Koay.mp4" type="video/mp4">
                                     Your browser does not support HTML5 video playback.
                                 </video>
                             </div>
-                            <div class="text-center mt-3 mb-5">
-                                <span class="text-[11px] text-slate-400 font-mono">S2_objection handling_Kendron Koay.mp4</span>
+                            <div class="text-center mt-3 mb-5"><span class="text-[11px] text-slate-400 font-mono">S2_objection handling_Kendron Koay.mp4</span></div>
+                        </div>
+                        <div class="p-4 rounded-xl bg-slate-900 border border-slate-800 text-xs space-y-2">
+                            <div class="font-bold text-amber-300 font-heading uppercase tracking-wider text-[11px]">4 Client Objections Systematically Resolved:</div>
+                            <div class="space-y-1.5 text-slate-300 text-justify-clinical font-light">
+                                <div>&bull; <strong class="text-white font-medium">Upfront Savings Buffer:</strong> Compares downpayment vs higher financing margin.</div>
+                                <div>&bull; <strong class="text-white font-medium">Hidden Fees &amp; Flexi Costs:</strong> Reviews PDS, legal, stamp duty, and MRTA fees upfront.</div>
                             </div>
                         </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-                        <div class="p-4 rounded-xl bg-slate-900 border border-slate-800 text-xs space-y-2">
-                            <div class="font-bold text-amber-300 font-heading uppercase tracking-wider text-[11px]">5 Client Objections Systematically Resolved:</div>
-                            <div class="space-y-1.5 text-slate-300 text-justify-clinical font-light">
-                                <div>&bull; <strong class="text-white font-medium">Upfront Savings Buffer:</strong> Compares the RM75,000 (15%) downpayment against a higher financing margin to weigh cash buffer vs monthly instalment.</div>
-                                <div>&bull; <strong class="text-white font-medium">Hidden Fees &amp; Flexi Costs:</strong> Reviews the Product Disclosure Sheet (PDS), legal, stamp duty, MRTA, and Flexi fees upfront.</div>
-                                <div>&bull; <strong class="text-white font-medium">Service &amp; Approval Speed:</strong> Combines dedicated Relationship Manager follow-up with real-time MAE and Home2u tracking.</div>
+    <!-- ========================================================================= -->
+    <!-- KYDP SCENARIO 3 SECTION (GRAB DATA ANALYST ROLE SIMULATION)               -->
+    <!-- ========================================================================= -->
+    <section id="kydp-s3" class="py-24 bg-slate-950 text-white border-t border-grab-500/20 relative overflow-hidden scroll-mt-20">
+        <div class="absolute -top-32 -right-32 w-[600px] h-[600px] bg-grab-500/10 rounded-full filter blur-[130px] pointer-events-none"></div>
+        <div class="absolute -bottom-32 -left-32 w-[600px] h-[600px] bg-emerald-800/10 rounded-full filter blur-[130px] pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center max-w-3xl mx-auto mb-16 reveal">
+                <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-900 border border-grab-500/40 text-grab-300 text-xs font-bold font-heading uppercase tracking-widest mb-4">
+                    <i class="fa-solid fa-chart-pie text-[11px] text-grab-400"></i> Corporate Up-skilling &amp; Strategy &bull; Scenario 3
+                </div>
+                <h2 class="text-3xl sm:text-5xl font-extrabold tracking-tight font-heading text-white">
+                    K-Youth Development Programme
+                </h2>
+                <h3 class="text-base sm:text-lg text-grab-400 font-semibold font-heading mt-2 uppercase tracking-wider">
+                    Scenario 3: Grab E-Hailing Performance &amp; Growth Strategy
+                </h3>
+                <div class="w-20 h-1 bg-grab-500 mx-auto mt-4 rounded-full"></div>
+            </div>
+
+            <!-- Scenario 3 Role Overview Card -->
+            <div class="bg-slate-900/90 border border-grab-500/30 rounded-3xl p-8 sm:p-10 mb-16 shadow-2xl backdrop-blur-md reveal">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                    <div class="lg:col-span-3 flex justify-center">
+                        <div class="w-36 h-36 sm:w-44 sm:h-44 rounded-2xl overflow-hidden border-2 border-grab-400/50 shadow-soft-grab">
+                            <img src="IMG_20260821_174246.jpg" alt="Dr Kendron Koay" class="w-full h-full object-cover">
+                        </div>
+                    </div>
+                    <div class="lg:col-span-9 text-center lg:text-left">
+                        <span class="text-xs font-bold text-grab-400 uppercase tracking-widest font-heading block mb-1">Data Analyst Role Simulation &bull; Group 5</span>
+                        <h4 class="text-2xl sm:text-3xl font-bold font-heading text-white mb-3">E-Hailing Performance Audit &amp; Head of Department Presentation</h4>
+                        <p class="text-slate-300 text-sm md:text-base text-justify-clinical leading-relaxed font-light mb-5">
+                            In Scenario 3 of the K-Youth Development Programme, I functioned as a Data Analyst in <strong class="text-white font-medium">Grab's E-Hailing Department</strong> (Group 5). Tasked with analysing two years of transactional commission data (2,000 transactions spanning 2022Q1&ndash;2024Q2), I evaluated regional performance, identified commercial bright spots and leakage hotspots, and formulated differentiated regional growth recommendations presented to the Head of Department (HoD).
+                        </p>
+                        <div class="flex flex-wrap gap-2 justify-center lg:justify-start">
+                            <span class="px-3 py-1 bg-slate-950 text-grab-200 text-xs rounded-md border border-grab-500/30">Pyramid Principle &amp; 5 Whys</span>
+                            <span class="px-3 py-1 bg-slate-950 text-grab-200 text-xs rounded-md border border-grab-500/30">Excel PivotTables &amp; ChatGPT AI</span>
+                            <span class="px-3 py-1 bg-slate-950 text-grab-200 text-xs rounded-md border border-grab-500/30">Regional Growth Playbooks</span>
+                            <span class="px-3 py-1 bg-slate-950 text-grab-200 text-xs rounded-md border border-grab-500/30">Executive HoD Presentation</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Scenario 3: Written Portfolio -->
+            <div class="mb-20">
+                <div class="flex items-center justify-between pb-4 border-b border-slate-800 mb-8 reveal">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-xl bg-grab-500/20 text-grab-400 flex items-center justify-center text-lg border border-grab-500/30">
+                            <i class="fa-solid fa-file-invoice-dollar"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl sm:text-2xl font-bold font-heading text-white">Scenario 3: Written Portfolio</h3>
+                            <p class="text-xs text-grab-400 font-heading uppercase tracking-wider">Preliminary Analysis Approach &amp; Performance Audit Report</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-slate-900 border border-slate-800 hover:border-grab-500/40 rounded-3xl p-6 sm:p-8 shadow-2xl reveal transition duration-300">
+                    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-5">
+                        <div>
+                            <span class="px-3 py-1 bg-grab-500/10 text-grab-300 border border-grab-500/30 rounded text-xs font-bold font-heading uppercase inline-block mb-2">Written Deliverable &bull; Analysis Approach</span>
+                            <h4 class="text-xl font-bold font-heading text-white">Preliminary Data Analysis Approach &amp; Performance Report</h4>
+                        </div>
+                        <div class="flex gap-2 self-start sm:self-auto">
+                            <button onclick="openModal('pdfS3')" class="px-3.5 py-2 bg-slate-800 hover:bg-slate-700 text-white rounded-xl text-xs font-heading font-semibold transition flex items-center gap-1.5"><i class="fa-regular fa-eye text-grab-400"></i> Preview Summary</button>
+                            <a href="S3_Prelim analysis approach_Kendron Koay.pdf" target="_blank" download class="px-3.5 py-2 bg-grab-600 hover:bg-grab-500 text-white rounded-xl text-xs font-heading font-bold transition flex items-center gap-1.5"><i class="fa-solid fa-download"></i> Download PDF</a>
+                        </div>
+                    </div>
+
+                    <p class="text-slate-400 text-xs sm:text-sm text-justify-clinical leading-relaxed mb-6 font-light">
+                        Detailed analytical blueprint establishing rigorous data guardrails (H1 2024 vs H1 2023 like-for-like comparison because 2024 contains Q1&ndash;Q2 only, excluding transaction counts as standalone insights, and applying PivotTable service-driver decompositions). Identifies Central (+22.9% YoY, 32.9% share) and South (+13.3% YoY, 29.9% share) as regional growth engines, while flagging East Coast (-3.6%) and Sabah/Sarawak (-9.0%) as priority recovery hotspots.
+                    </p>
+
+                    <div class="p-4 rounded-xl bg-slate-950/80 border border-slate-800 text-xs space-y-2">
+                        <div class="font-bold text-grab-300 font-heading uppercase tracking-wider text-[11px]">Key Performance Takeaways:</div>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-slate-300 font-light text-justify-clinical">
+                            <div>&bull; <strong class="text-white font-medium">Bright Spot:</strong> Grab Executive (+71.0% H1 YoY) and Grab Premium (+33.5%) lifted combined premium commission share from 19.8% to 27.2% (+7.4pp).</div>
+                            <div>&bull; <strong class="text-white font-medium">Hot Spot:</strong> Grab Saver (-18.5%), 6-seater (-6.2%), and JustGrab (-3.9%) constrained overall momentum in H1 2024.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Scenario 3: Visual Portfolio & Data Portfolio -->
+            <div>
+                <div class="flex items-center justify-between pb-4 border-b border-slate-800 mb-8 reveal">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-xl bg-grab-500/20 text-grab-400 flex items-center justify-center text-lg border border-grab-500/30">
+                            <i class="fa-solid fa-chart-bar"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl sm:text-2xl font-bold font-heading text-white">Scenario 3: Visual &amp; Data Portfolio</h3>
+                            <p class="text-xs text-grab-400 font-heading uppercase tracking-wider">HoD Presentation Deck &amp; Excel Working Assignment Workbook</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+                    <!-- Visual Deliverable: Presentation Deck -->
+                    <div class="lg:col-span-7 bg-slate-900 border border-slate-800 hover:border-grab-500/40 rounded-3xl p-6 flex flex-col justify-between hover-lift reveal transition duration-300">
+                        <div>
+                            <div class="flex justify-between items-center mb-4">
+                                <span class="px-3 py-1 bg-grab-500/10 text-grab-300 border border-grab-500/30 rounded text-xs font-bold font-heading uppercase">Visual Portfolio &bull; HoD Presentation</span>
+                                <span class="text-xs text-slate-400 font-mono">12 Slides</span>
+                            </div>
+                            <h4 class="text-xl font-bold font-heading text-white mb-2">Head of Department (HoD) Presentation Deck</h4>
+                            <p class="text-slate-400 text-xs sm:text-sm text-justify-clinical leading-relaxed mb-6 font-light">
+                                Executive slide deck delivered to the Head of Department answering <em>"Where should Grab invest for growth and where must performance be repaired first?"</em> Covers quarterly commission trends (FY2023 RM1.94m; H1 2024 RM1.01m), regional growth drivers (+RM96.9k from Central and South), premiumisation mix shifts, and a 90-day test-and-scale execution plan.
+                            </p>
+                        </div>
+
+                        <div class="pt-4 border-t border-slate-800 flex items-center justify-between">
+                            <span class="text-xs text-slate-400 truncate max-w-[210px] font-mono">S3_Presentation_Kendron Koay.pdf</span>
+                            <div class="flex gap-2">
+                                <button onclick="openModal('pdfS3Deck')" class="px-3.5 py-2 bg-slate-800 hover:bg-slate-700 text-white rounded-xl text-xs font-heading font-semibold transition"><i class="fa-regular fa-eye mr-1 text-grab-400"></i> Preview Deck</button>
+                                <a href="S3_Presentation_Kendron Koay.pdf" target="_blank" download class="px-3.5 py-2 bg-grab-600 hover:bg-grab-500 text-white rounded-xl text-xs font-heading font-bold transition"><i class="fa-solid fa-download"></i></a>
                             </div>
                         </div>
                     </div>
 
+                    <!-- Data Portfolio: Excel Workbook -->
+                    <div class="lg:col-span-5 bg-slate-900 border border-slate-800 hover:border-grab-500/40 rounded-3xl p-6 flex flex-col justify-between hover-lift reveal delay-100 transition duration-300">
+                        <div>
+                            <div class="flex justify-between items-center mb-4">
+                                <span class="px-3 py-1 bg-grab-500/10 text-grab-300 border border-grab-500/30 rounded text-xs font-bold font-heading uppercase">Data Portfolio &bull; Excel Model</span>
+                                <span class="text-xs text-slate-400 font-mono">5 PivotTables &amp; 5 Charts</span>
+                            </div>
+                            <h4 class="text-xl font-bold font-heading text-white mb-2">Scenario 3 Working Assignment Workbook</h4>
+                            <p class="text-slate-400 text-xs sm:text-sm text-justify-clinical leading-relaxed mb-6 font-light">
+                                Complete clean 2,000-row transaction dataset configured with native Excel PivotTables (total-by-quarter, service-by-quarter, geography-by-quarter, and service-by-region) alongside automated YoY growth calculations and visual charts.
+                            </p>
+                        </div>
+
+                        <div class="pt-4 border-t border-slate-800 flex items-center justify-between">
+                            <span class="text-xs text-slate-400 truncate max-w-[180px] font-mono">S3_Presentation_Kendron Koay.xlsx</span>
+                            <a href="S3_Presentation_Kendron Koay.xlsx" target="_blank" download class="px-4 py-2 bg-grab-600 hover:bg-grab-500 text-white rounded-xl text-xs font-heading font-bold uppercase tracking-wider transition flex items-center gap-2">
+                                <i class="fa-solid fa-file-excel"></i> Download Excel
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================================================= -->
+    <!-- CAPSTONE PROJECT SECTION (UNIMAS MEDICAL RESEARCH CASE STUDY)             -->
+    <!-- ========================================================================= -->
+    <section id="capstone" class="py-24 bg-slate-900 text-white border-t border-capstone-500/30 relative overflow-hidden scroll-mt-20">
+        <div class="absolute -top-32 -left-32 w-[600px] h-[600px] bg-capstone-600/15 rounded-full filter blur-[130px] pointer-events-none"></div>
+        <div class="absolute -bottom-32 -right-32 w-[600px] h-[600px] bg-blue-800/15 rounded-full filter blur-[130px] pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center max-w-3xl mx-auto mb-16 reveal">
+                <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-950 border border-capstone-500/40 text-capstone-300 text-xs font-bold font-heading uppercase tracking-widest mb-4">
+                    <i class="fa-solid fa-award text-[11px] text-capstone-400"></i> Culminating Phase &bull; K-Youth Nurture 2026
+                </div>
+                <h2 class="text-3xl sm:text-5xl font-extrabold tracking-tight font-heading text-white">
+                    Capstone Project Case Study
+                </h2>
+                <h3 class="text-base sm:text-lg text-capstone-300 font-semibold font-heading mt-2 uppercase tracking-wider">
+                    Cyto-Histopathological Correlation of Abnormal Cervical Screening at UNIMAS
+                </h3>
+                <div class="w-20 h-1 bg-capstone-500 mx-auto mt-4 rounded-full"></div>
+            </div>
+
+            <!-- Capstone Role & Project Overview Card (Academic Session 2023/2024, No Supervisor Names) -->
+            <div class="bg-slate-950/90 border border-capstone-500/30 rounded-3xl p-8 sm:p-10 mb-16 shadow-2xl backdrop-blur-md reveal">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                    <div class="lg:col-span-3 flex justify-center">
+                        <div class="w-36 h-36 sm:w-44 sm:h-44 rounded-2xl overflow-hidden border-2 border-capstone-400/50 shadow-soft-cap">
+                            <img src="IMG_20260821_174246.jpg" alt="Dr Kendron Koay" class="w-full h-full object-cover">
+                        </div>
+                    </div>
+                    <div class="lg:col-span-9 text-center lg:text-left">
+                        <span class="text-xs font-bold text-capstone-400 uppercase tracking-widest font-heading block mb-1">Principal Student Investigator &bull; Academic Session 2023/2024</span>
+                        <h4 class="text-2xl sm:text-3xl font-bold font-heading text-white mb-3">Translating Clinical Medical Research into an Industry-Standard Case Study</h4>
+                        <p class="text-slate-300 text-sm md:text-base text-justify-clinical leading-relaxed font-light mb-5">
+                            For my Capstone Project, I reframed my UNIMAS undergraduate medical research study (conducted during the 2023/2024 academic session) into an employer-ready operational case study structured around the five-pillar Industry Case Study Mindset (Context, Problem, Constraints, Process, and Impact). Executed in collaboration with the Departments of Pathology and Obstetrics &amp; Gynaecology, this seven-year STARD-compliant audit (2017&ndash;2023) evaluated 238 consecutive referrals at the <strong class="text-white font-medium">Women Health and Infertility Clinic, UNIMAS</strong>, establishing Sarawak's first local diagnostic accuracy benchmarks and an actionable four-rule risk-stratified colposcopy decision protocol.
+                        </p>
+                        <div class="flex flex-wrap gap-2 justify-center lg:justify-start">
+                            <span class="px-3 py-1 bg-slate-900 text-capstone-200 text-xs rounded-md border border-capstone-500/30">STARD Diagnostic Audit</span>
+                            <span class="px-3 py-1 bg-slate-900 text-capstone-200 text-xs rounded-md border border-capstone-500/30">IBM SPSS v28.0 Biostatistics</span>
+                            <span class="px-3 py-1 bg-slate-900 text-capstone-200 text-xs rounded-md border border-capstone-500/30">5-Whys Root Cause Analysis</span>
+                            <span class="px-3 py-1 bg-slate-900 text-capstone-200 text-xs rounded-md border border-capstone-500/30">UNIMAS Ethics Clearance (FME/24/03)</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Capstone: Written Portfolio -->
+            <div class="mb-20">
+                <div class="flex items-center justify-between pb-4 border-b border-slate-800 mb-8 reveal">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-xl bg-capstone-500/20 text-capstone-400 flex items-center justify-center text-lg border border-capstone-500/30">
+                            <i class="fa-solid fa-file-shield"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl sm:text-2xl font-bold font-heading text-white">Capstone: Written Portfolio</h3>
+                            <p class="text-xs text-capstone-400 font-heading uppercase tracking-wider">Comprehensive Case Study Report, Synoptic Proforma &amp; Ethics Clearance</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-slate-950 border border-slate-800 hover:border-capstone-500/40 rounded-3xl p-6 sm:p-8 shadow-2xl reveal transition duration-300">
+                    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-5">
+                        <div>
+                            <span class="px-3 py-1 bg-capstone-500/10 text-capstone-300 border border-capstone-500/30 rounded text-xs font-bold font-heading uppercase inline-block mb-2">Written Deliverable &bull; Full Report</span>
+                            <h4 class="text-xl font-bold font-heading text-white">Capstone Project Case Study Report (20 Pages)</h4>
+                        </div>
+                        <div class="flex gap-2 self-start sm:self-auto">
+                            <button onclick="openModal('pdfCap')" class="px-3.5 py-2 bg-slate-800 hover:bg-slate-700 text-white rounded-xl text-xs font-heading font-semibold transition flex items-center gap-1.5"><i class="fa-regular fa-eye text-capstone-400"></i> Preview Summary</button>
+                            <a href="Capstone Porject Case Study Report_Kendron Koay.pdf" target="_blank" download class="px-3.5 py-2 bg-capstone-600 hover:bg-capstone-500 text-white rounded-xl text-xs font-heading font-bold transition flex items-center gap-1.5"><i class="fa-solid fa-download"></i> Download PDF</a>
+                        </div>
+                    </div>
+
+                    <p class="text-slate-400 text-xs sm:text-sm text-justify-clinical leading-relaxed mb-6 font-light">
+                        Comprehensive ten-chapter case study report detailing the executive summary, project context (Sarawak's state-leading cervical cancer incidence of 12.1 per 100,000 women vs 6.0 nationally), problem re-definition (unquantified cyto-histopathological discordance and a 9.6% non-diagnostic biopsy rate in women aged &ge;50 years due to Type 3 Transformation Zones), STARD disposition of 230 eligible patients, four-stage governance framework, and the four-rule risk-stratified colposcopy protocol. Includes Appendix A (Revised Synoptic IFCPC/LAST Proforma) and Appendix B (UNIMAS Medical Ethics Committee Approval FME/24/03).
+                    </p>
+
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs">
+                        <div class="p-4 rounded-xl bg-slate-900 border border-slate-800">
+                            <div class="font-bold text-capstone-300 font-heading uppercase tracking-wider mb-1">Key Diagnostic Finding:</div>
+                            <p class="text-slate-300 font-light text-justify-clinical">Combined co-testing (HPV-16/18 or high-grade cytology) achieved <strong class="text-white">100.0% sensitivity and 100.0% NPV</strong> for detecting high-grade CIN II+ lesions.</p>
+                        </div>
+                        <div class="p-4 rounded-xl bg-slate-900 border border-slate-800">
+                            <div class="font-bold text-capstone-300 font-heading uppercase tracking-wider mb-1">Root Cause &amp; Clinical Fix:</div>
+                            <p class="text-slate-300 font-light text-justify-clinical">68.8% (11/16) of insufficient biopsies clustered in women aged &ge;50 years; mandating concurrent Endocervical Curettage (ECC) resolves this sampling gap.</p>
+                        </div>
+                        <div class="p-4 rounded-xl bg-slate-900 border border-slate-800">
+                            <div class="font-bold text-capstone-300 font-heading uppercase tracking-wider mb-1">Resource Optimisation:</div>
+                            <p class="text-slate-300 font-light text-justify-clinical">Deferring biopsy in normal Swede Score &lt; 5 low-grade referrals safely spares <strong class="text-white">27.8% of patients</strong> unnecessary invasive procedures.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Capstone: Visual Portfolio (PowerPoint Slide Deck) -->
+            <div>
+                <div class="flex items-center justify-between pb-4 border-b border-slate-800 mb-8 reveal">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-xl bg-capstone-500/20 text-capstone-400 flex items-center justify-center text-lg border border-capstone-500/30">
+                            <i class="fa-solid fa-file-powerpoint"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl sm:text-2xl font-bold font-heading text-white">Capstone: Visual Portfolio</h3>
+                            <p class="text-xs text-capstone-400 font-heading uppercase tracking-wider">Industry Case Study Presentation (10 Slides)</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-slate-950 border border-slate-800 hover:border-capstone-500/40 rounded-3xl p-6 sm:p-8 shadow-2xl reveal transition duration-300">
+                    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-5">
+                        <div>
+                            <span class="px-3 py-1 bg-capstone-500/10 text-capstone-300 border border-capstone-500/30 rounded text-xs font-bold font-heading uppercase inline-block mb-2">Visual Portfolio &bull; Slide Deck</span>
+                            <h4 class="text-xl font-bold font-heading text-white">Capstone Case Study Presentation &amp; Defence</h4>
+                        </div>
+                        <div class="flex gap-2 self-start sm:self-auto">
+                            <button onclick="openModal('pdfCapDeck')" class="px-3.5 py-2 bg-slate-800 hover:bg-slate-700 text-white rounded-xl text-xs font-heading font-semibold transition flex items-center gap-1.5"><i class="fa-regular fa-eye text-capstone-400"></i> Preview Slides</button>
+                            <a href="Capstone Case Study Presentation_Kendron Koay.pptx" target="_blank" download class="px-3.5 py-2 bg-capstone-600 hover:bg-capstone-500 text-white rounded-xl text-xs font-heading font-bold transition flex items-center gap-1.5"><i class="fa-solid fa-download"></i> Download PPTX</a>
+                        </div>
+                    </div>
+
+                    <p class="text-slate-400 text-xs sm:text-sm text-justify-clinical leading-relaxed mb-6 font-light">
+                        Ten-slide executive presentation engineered around the Industry Case Study Mindset framework: Slide 1 (Title &amp; Executive Overview), Slide 2 (Context &amp; Sarawak Regional Burden), Slide 3 (Problem Identification &amp; 5-Whys Root Cause), Slide 4 (Operational &amp; Clinical Constraints), Slide 5 (Process &amp; STARD Methodology), Slide 6 (Biopsy Spectrum Findings across 150 Conclusive Cases), Slide 7 (2014 Bethesda Cytology &amp; hrHPV Stratification), Slide 8 (100% Co-Testing Sensitivity &amp; 4-Rule Protocol), Slide 9 (Quantified Clinical &amp; Sarawak Health System Impact), and Slide 10 (Competencies &amp; Professional Reflection).
+                    </p>
+
+                    <div class="p-4 rounded-xl bg-slate-900 border border-slate-800 text-xs text-slate-300 space-y-1.5 font-light">
+                        <div class="font-bold text-capstone-300 font-heading uppercase tracking-wider text-[11px] mb-1">Presentation Credentials &amp; Clinical Scope:</div>
+                        <div>&bull; <strong class="text-white font-medium">Principal Student Investigator:</strong> Kendron Koay, Doctor of Medicine (MD), Faculty of Medicine and Health Sciences, UNIMAS.</div>
+                        <div>&bull; <strong class="text-white font-medium">Clinical Setting &amp; Study Window:</strong> Women Health and Infertility Clinic, UNIMAS (2017&ndash;2023 Audit; Academic Session 2023/2024).</div>
+                        <div>&bull; <strong class="text-white font-medium">Ethics &amp; Regulatory Governance:</strong> Approved by the Medical Ethics Committee, FMHS UNIMAS (Reference: FME/24/03).</div>
+                    </div>
                 </div>
             </div>
 
@@ -972,29 +1158,20 @@
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
-                <!-- Email Card -->
                 <a href="mailto:kendronkoay@hotmail.com" class="bg-slate-50 border border-slate-200 rounded-2xl p-8 text-center hover-lift reveal transition duration-300 group">
-                    <div class="w-14 h-14 rounded-2xl bg-clinical-50 text-clinical-600 border border-clinical-200 flex items-center justify-center text-2xl mx-auto mb-5 group-hover:bg-clinical-600 group-hover:text-white transition-colors shadow-sm">
-                        <i class="fa-solid fa-envelope"></i>
-                    </div>
+                    <div class="w-14 h-14 rounded-2xl bg-clinical-50 text-clinical-600 border border-clinical-200 flex items-center justify-center text-2xl mx-auto mb-5 group-hover:bg-clinical-600 group-hover:text-white transition-colors shadow-sm"><i class="fa-solid fa-envelope"></i></div>
                     <h3 class="text-base font-bold text-slate-900 font-heading mb-1">Email Me</h3>
                     <p class="text-xs text-slate-600 font-medium break-all">kendronkoay@hotmail.com</p>
                 </a>
 
-                <!-- WhatsApp Card -->
                 <a href="https://wa.me/60106527799" target="_blank" rel="noopener noreferrer" class="bg-slate-50 border border-slate-200 rounded-2xl p-8 text-center hover-lift reveal delay-100 transition duration-300 group">
-                    <div class="w-14 h-14 rounded-2xl bg-emerald-50 text-emerald-600 border border-emerald-200 flex items-center justify-center text-2xl mx-auto mb-5 group-hover:bg-emerald-600 group-hover:text-white transition-colors shadow-sm">
-                        <i class="fa-brands fa-whatsapp"></i>
-                    </div>
+                    <div class="w-14 h-14 rounded-2xl bg-emerald-50 text-emerald-600 border border-emerald-200 flex items-center justify-center text-2xl mx-auto mb-5 group-hover:bg-emerald-600 group-hover:text-white transition-colors shadow-sm"><i class="fa-brands fa-whatsapp"></i></div>
                     <h3 class="text-base font-bold text-slate-900 font-heading mb-1">WhatsApp</h3>
                     <p class="text-xs text-slate-600 font-medium">+6010-6527799</p>
                 </a>
 
-                <!-- LinkedIn Card -->
                 <a href="https://www.linkedin.com/in/kendron-koay-b090b8227?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank" rel="noopener noreferrer" class="bg-slate-50 border border-slate-200 rounded-2xl p-8 text-center hover-lift reveal delay-200 transition duration-300 group">
-                    <div class="w-14 h-14 rounded-2xl bg-sky-50 text-sky-600 border border-sky-200 flex items-center justify-center text-2xl mx-auto mb-5 group-hover:bg-sky-600 group-hover:text-white transition-colors shadow-sm">
-                        <i class="fa-brands fa-linkedin-in"></i>
-                    </div>
+                    <div class="w-14 h-14 rounded-2xl bg-sky-50 text-sky-600 border border-sky-200 flex items-center justify-center text-2xl mx-auto mb-5 group-hover:bg-sky-600 group-hover:text-white transition-colors shadow-sm"><i class="fa-brands fa-linkedin-in"></i></div>
                     <h3 class="text-base font-bold text-slate-900 font-heading mb-1">LinkedIn Profile</h3>
                     <p class="text-xs text-slate-600 font-medium truncate">Connect Professionally</p>
                 </a>
@@ -1002,49 +1179,37 @@
         </div>
     </section>
 
-    <!-- SCENARIO 1 PDF SUMMARY MODAL -->
+    <!-- INTERACTIVE DOCUMENT SUMMARY MODAL -->
     <div id="pdf-modal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm hidden items-center justify-center p-4">
         <div class="bg-white rounded-2xl w-full max-w-2xl max-h-[85vh] overflow-hidden flex flex-col shadow-2xl">
             <div class="p-5 border-b border-slate-200 flex justify-between items-center bg-slate-50">
                 <div class="flex items-center gap-3">
-                    <i class="fa-solid fa-file-pdf text-red-500 text-xl"></i>
+                    <i class="fa-solid fa-file-lines text-clinical-600 text-xl"></i>
                     <div>
                         <h4 id="modal-title" class="text-base font-bold text-slate-900 font-heading">Document Preview</h4>
                         <span id="modal-subtitle" class="text-xs text-slate-500 font-mono">filename.pdf</span>
                     </div>
                 </div>
-                <button onclick="closeModal()" class="text-slate-400 hover:text-slate-700 p-2 rounded-lg text-lg">
-                    <i class="fa-solid fa-xmark"></i>
-                </button>
+                <button onclick="closeModal()" class="text-slate-400 hover:text-slate-700 p-2 rounded-lg text-lg"><i class="fa-solid fa-xmark"></i></button>
             </div>
             
-            <div id="modal-body" class="p-6 overflow-y-auto text-sm text-slate-700 leading-relaxed space-y-4">
-                <!-- Content injected dynamically via JS -->
-            </div>
+            <div id="modal-body" class="p-6 overflow-y-auto text-sm text-slate-700 leading-relaxed space-y-4"></div>
 
             <div class="p-4 border-t border-slate-200 bg-slate-50 flex justify-between items-center">
-                <span class="text-xs text-slate-400">KYDP Scenario 1 Document</span>
-                <a id="modal-download-link" href="#" target="_blank" download class="px-4 py-2 bg-clinical-700 hover:bg-clinical-800 text-white rounded-lg text-xs font-bold font-heading uppercase tracking-wider flex items-center gap-2">
-                    <i class="fa-solid fa-download"></i> Open Original PDF
-                </a>
+                <span class="text-xs text-slate-400">KYDP Portfolio Deliverable</span>
+                <a id="modal-download-link" href="#" target="_blank" download class="px-4 py-2 bg-clinical-700 hover:bg-clinical-800 text-white rounded-lg text-xs font-bold font-heading uppercase tracking-wider flex items-center gap-2"><i class="fa-solid fa-download"></i> Download Original File</a>
             </div>
         </div>
     </div>
 
-    <!-- SCENARIO 2 FULLSCREEN IMAGE LIGHTBOX MODAL -->
+    <!-- FULLSCREEN IMAGE LIGHTBOX MODAL -->
     <div id="image-modal" class="fixed inset-0 z-50 bg-black/90 backdrop-blur-md hidden items-center justify-center p-4">
         <div class="relative w-full max-w-6xl max-h-[92vh] flex flex-col items-center">
             <div class="w-full flex justify-between items-center text-white mb-3 px-2">
-                <span id="image-modal-caption" class="text-xs sm:text-sm font-heading font-bold uppercase tracking-wider text-amber-400">
-                    KYDP Scenario 2 Asset
-                </span>
+                <span id="image-modal-caption" class="text-xs sm:text-sm font-heading font-bold uppercase tracking-wider text-amber-400">KYDP Asset</span>
                 <div class="flex items-center gap-3">
-                    <a id="image-modal-download" href="#" download class="px-3.5 py-1.5 bg-amber-400 hover:bg-amber-300 text-slate-950 rounded-lg text-xs font-heading font-bold uppercase tracking-wider transition">
-                        <i class="fa-solid fa-download mr-1"></i> Download
-                    </a>
-                    <button onclick="closeImageModal()" class="w-9 h-9 rounded-lg bg-slate-800 hover:bg-slate-700 text-white flex items-center justify-center text-lg">
-                        <i class="fa-solid fa-xmark"></i>
-                    </button>
+                    <a id="image-modal-download" href="#" download class="px-3.5 py-1.5 bg-amber-400 hover:bg-amber-300 text-slate-950 rounded-lg text-xs font-heading font-bold uppercase tracking-wider transition"><i class="fa-solid fa-download mr-1"></i> Download</a>
+                    <button onclick="closeImageModal()" class="w-9 h-9 rounded-lg bg-slate-800 hover:bg-slate-700 text-white flex items-center justify-center text-lg"><i class="fa-solid fa-xmark"></i></button>
                 </div>
             </div>
             <div class="overflow-auto max-h-[82vh] w-full rounded-2xl border border-slate-700 bg-black p-2">
@@ -1079,7 +1244,6 @@
     </footer>
 
     <script>
-        // Mobile Drawer Toggle
         const mobileToggle = document.getElementById('mobile-toggle');
         const mobileDrawer = document.getElementById('mobile-drawer');
 
@@ -1087,14 +1251,12 @@
             mobileDrawer.classList.toggle('hidden');
         });
 
-        // Close mobile drawer upon click on any link
         mobileDrawer.querySelectorAll('a').forEach(link => {
             link.addEventListener('click', () => {
                 mobileDrawer.classList.add('hidden');
             });
         });
 
-        // Sticky Navbar styling transition
         window.addEventListener('scroll', () => {
             const nav = document.getElementById('mainNav');
             if (window.scrollY > 30) {
@@ -1102,11 +1264,10 @@
                 nav.style.backgroundColor = 'rgba(255, 255, 255, 0.98)';
             } else {
                 nav.classList.remove('shadow-card');
-                nav.style.backgroundColor = 'rgba(255, 255, 255, 0.95)';
+                nav.style.backgroundColor = 'rgba(255, 255, 255, 0.96)';
             }
         });
 
-        // Scroll Reveal animation trigger
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -1117,7 +1278,6 @@
 
         document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
 
-        // PDF Data Store for Interactive Modal (Scenario 1)
         const pdfData = {
             pdf1: {
                 title: "Delivery Email to Marketing Team",
@@ -1126,12 +1286,10 @@
                 content: `
                     <div class="p-3 bg-slate-100 rounded-lg text-xs font-mono mb-3">
                         <strong>Subject:</strong> Strategic Sustainability Insights for Customer-Facing Campaigns (Memo Attached)<br>
-                        <strong>From:</strong> Dr Kendron Koay (Business Analyst | Business Analysis Team, IHH Healthcare)<br>
+                        <strong>From:</strong> Dr Kendron Koay (Business Analysis Team, IHH Healthcare)<br>
                         <strong>To:</strong> Marketing Department
                     </div>
-                    <p class="text-justify-clinical"><strong>Executive Message:</strong></p>
-                    <p class="text-justify-clinical">Please find attached a one-page memorandum detailing the strategic, customer-centric insights extracted from the IHH Healthcare 2024 Sustainability Report. To support your objective of promoting IHH's sustainability progress to our customers, this memo deliberately excludes internal operational metrics. Instead, it highlights high-impact achievements designed to elevate brand prestige and influence consumer purchasing behaviour.</p>
-                    <p class="text-justify-clinical">Key strategic pillars highlighted: <strong>Patient Experience &amp; Clinical Excellence</strong> (8M digital records, Annalise.ai &amp; SmartPeep), <strong>Community Impact</strong> (Life Renewed cancer funding for 946 patients, 3.1M screenings), <strong>Environmental Stewardship</strong> (first electric motorcycle ambulance, 90% plastic drop), and <strong>Global Accolades</strong> (TIME &amp; Forbes recognitions).</p>
+                    <p class="text-justify-clinical">Formal executive email introducing the one-page sustainability memorandum. Deliberately filters out internal operational metrics to highlight customer-facing brand prestige pillars: Patient Experience &amp; Clinical Excellence, Community Impact, Environmental Stewardship, and Global Accolades.</p>
                 `
             },
             pdf2: {
@@ -1140,21 +1298,9 @@
                 url: "S1_memo_Kendron Koay.pdf",
                 content: `
                     <div class="p-3 bg-slate-100 rounded-lg text-xs font-mono mb-3">
-                        <strong>MEMORANDUM</strong><br>
-                        <strong>TO:</strong> Marketing Department | <strong>FROM:</strong> Business Analysis Team (Dr Kendron Koay)<br>
-                        <strong>DATE:</strong> 7 October 2026 | <strong>SUBJECT:</strong> Strategic Sustainability Insights for Customer-Facing Campaigns
+                        <strong>MEMORANDUM</strong> &bull; IHH Healthcare 2024 Sustainability Insights
                     </div>
-                    <h5 class="font-bold text-slate-900 font-heading text-sm">1. Elevating Patient Experience &amp; Clinical Excellence</h5>
-                    <p class="text-justify-clinical">8+ million patients empowered via MyHealth360 online portals. Deployed Annalise.ai for rapid 20-second chest X-ray triage (detecting up to 124 abnormalities) and SmartPeep video analytics preventing patient falls in wards.</p>
-                    
-                    <h5 class="font-bold text-slate-900 font-heading text-sm mt-3">2. Tangible Community Impact &amp; Social Responsibility</h5>
-                    <p class="text-justify-clinical">Life Renewed Programme fully sponsored advanced radiotherapy and radiosurgery for 946 public hospital cancer patients in Malaysia; over 3.1 million health and oncology screenings conducted since 2022.</p>
-
-                    <h5 class="font-bold text-slate-900 font-heading text-sm mt-3">3. Pioneering Environmental Stewardship</h5>
-                    <p class="text-justify-clinical">Prince Court Medical Centre deployed Malaysia's first electric motorcycle ambulance. Eliminated &gt;90% of single-use virgin plastics in non-clinical areas across Malaysia, Singapore, Hong Kong, and T&uuml;rkiye.</p>
-
-                    <h5 class="font-bold text-slate-900 font-heading text-sm mt-3">4. Prestigious Global Accolades</h5>
-                    <p class="text-justify-clinical">Recognised in TIME's "World's Best Companies 2024" and Forbes' "World's Best Employers 2024".</p>
+                    <p class="text-justify-clinical">Synthesises key achievements across <strong>Clinical Innovation</strong> (MyHealth360 portals, Annalise.ai chest X-ray triage, SmartPeep fall analytics), <strong>Community Impact</strong> (Life Renewed sponsorship for 946 cancer patients, 3.1M screenings), <strong>Environmental Stewardship</strong> (electric motorcycle ambulance, &gt;90% virgin plastic elimination), and <strong>Global Accolades</strong> (TIME &amp; Forbes).</p>
                 `
             },
             pdf3: {
@@ -1163,17 +1309,76 @@
                 url: "S1_primer_Kendron Koay.pdf",
                 content: `
                     <div class="p-3 bg-slate-100 rounded-lg text-xs font-mono mb-3">
-                        <strong>IHH Healthcare Onboarding Primer &bull; "Care. For Good."</strong><br>
-                        Target: New Executives &amp; Rising Leaders &bull; 70,000+ Global Colleagues &bull; 80+ Hospitals
+                        <strong>IHH Healthcare Onboarding Primer</strong> &bull; 80+ Hospitals Across 10 Countries
                     </div>
-                    <h5 class="font-bold text-slate-900 font-heading text-sm">Key Sections Covered:</h5>
-                    <ul class="list-disc list-inside space-y-1.5 text-xs text-justify-clinical mt-2">
-                        <li><strong>Identity &amp; Values:</strong> Purpose: Touching Lives. Transforming Care. Values: Patients First, Integrity, Empathy, Teamwork, Excellence.</li>
-                        <li><strong>Sustainability Architecture:</strong> People, Patients, Public, Planet with strict anti-bribery governance and EthicsPoint reporting.</li>
-                        <li><strong>People &amp; Psychological Safety:</strong> Mental Health First Aid (202 certified leaders), Intellect digital app for 24,000+ staff, 49% women in senior leadership.</li>
-                        <li><strong>Environmental Milestones:</strong> 55% reduction in high-potency desflurane anaesthetic gas, solar farm transitions, clinical gown usage cut by 60% via modified precautions.</li>
-                        <li><strong>Antimicrobial Stewardship (AMS):</strong> First private hospital group in Asia to implement CDC-aligned AMR protocols.</li>
-                        <li><strong>Humanitarian Action:</strong> Container city 'Solidarity Quarter' built for 2023 T&uuml;rkiye earthquake victims, RM1 million flood relief donation in Malaysia.</li>
+                    <p class="text-justify-clinical">Comprehensive seven-page orientation guide outlining IHH Healthcare's core values, "Care. For Good." sustainability architecture, mental health first aid and psychological safety initiatives, 55% desflurane anaesthetic gas reduction, antimicrobial stewardship, and humanitarian relief.</p>
+                `
+            },
+            pdfS3: {
+                title: "Preliminary Data Analysis Approach & Performance Report",
+                filename: "S3_Prelim analysis approach_Kendron Koay.pdf",
+                url: "S3_Prelim analysis approach_Kendron Koay.pdf",
+                content: `
+                    <div class="p-3 bg-emerald-50 border border-emerald-200 rounded-lg text-xs font-mono text-emerald-950 mb-3">
+                        <strong>SCENARIO 3 &bull; GRAB E-HAILING DATA ANALYST AUDIT</strong><br>
+                        Dataset: 2,000 Transactions (2022Q1&ndash;2024Q2) | Metric: Grab Commission Amount (RM)
+                    </div>
+                    <p class="text-justify-clinical"><strong>Analytical Guardrails:</strong> Uses H1 2024 vs H1 2023 like-for-like comparisons (since 2024 contains Q1&ndash;Q2 only) and excludes transaction counts as standalone performance insights.</p>
+                    <ul class="list-disc list-inside space-y-1.5 text-xs text-justify-clinical">
+                        <li><strong>Overall Trend:</strong> FY2023 commission grew +17.3% vs FY2022 (RM1.94m); H1 2024 grew +7.7% vs H1 2023 (RM1.01m), though quarterly momentum flattened around RM0.50m since 2023Q3.</li>
+                        <li><strong>Growth Engines (Bright Spots):</strong> Central (+22.9% YoY, 32.9% share) and South (+13.3% YoY, 29.9% share) generated +RM96.9k incremental commission, led by Grab Executive (+71.0%) and Grab Premium (+33.5%).</li>
+                        <li><strong>Recovery Hotspots:</strong> East Coast (-3.6% YoY) and Sabah/Sarawak (-9.0% YoY) contracted due to declines in Grab Saver (-18.5%), 6-seater (-6.2%), and JustGrab (-3.9%).</li>
+                    </ul>
+                `
+            },
+            pdfS3Deck: {
+                title: "Head of Department (HoD) Presentation Deck",
+                filename: "S3_Presentation_Kendron Koay.pdf",
+                url: "S3_Presentation_Kendron Koay.pdf",
+                content: `
+                    <div class="p-3 bg-emerald-50 border border-emerald-200 rounded-lg text-xs font-mono text-emerald-950 mb-3">
+                        <strong>GROUP 5 EXECUTIVE PRESENTATION TO HEAD OF DEPARTMENT</strong><br>
+                        Workbook Evidence: 5 Native Excel PivotTables &amp; 5 Charts
+                    </div>
+                    <p class="text-justify-clinical"><strong>Core Strategic Recommendation:</strong> Manage Grab's portfolio as two differentiated plays rather than a single national strategy:</p>
+                    <ul class="list-disc list-inside space-y-1.5 text-xs text-justify-clinical">
+                        <li><strong>Scale &amp; Defend (Central + South):</strong> Scale Executive, Premium, and Plus supply and CRM cross-sell (62.7% of H1 2024 commission) while protecting JustGrab retention.</li>
+                        <li><strong>Fix &amp; Prove (East Coast + Sabah/Sarawak):</strong> Diagnose driver supply, pricing, and rider win-back for Saver, JustGrab, and 6-seater before broad service expansion.</li>
+                        <li><strong>90-Day Execution Cycle:</strong> Days 0&ndash;30 Diagnose city/daypart baselines &rarr; Days 31&ndash;60 Run matched-cell growth &amp; recovery pilots &rarr; Days 61&ndash;90 Scale proven plays or stop low-ROI initiatives.</li>
+                    </ul>
+                `
+            },
+            pdfCap: {
+                title: "Capstone Project Case Study Report (20 Pages)",
+                filename: "Capstone Porject Case Study Report_Kendron Koay.pdf",
+                url: "Capstone Porject Case Study Report_Kendron Koay.pdf",
+                content: `
+                    <div class="p-3 bg-blue-50 border border-blue-200 rounded-lg text-xs font-mono text-blue-950 mb-3">
+                        <strong>UNIMAS CLINICAL AUDIT &bull; ACADEMIC SESSION 2023/2024</strong><br>
+                        Ethics Approval: FME/24/03 | Setting: Women Health and Infertility Clinic, UNIMAS
+                    </div>
+                    <p class="text-justify-clinical">Ten-chapter STARD-compliant retrospective diagnostic audit of 238 consecutive referrals (2017&ndash;2023; 230 eligible patients; mean age 44.76 &plusmn; 11.29 years; 90.4% Bumiputra) analysed in IBM SPSS Statistics v28.0.</p>
+                    <ul class="list-disc list-inside space-y-1.5 text-xs text-justify-clinical">
+                        <li><strong>Diagnostic Accuracy:</strong> Combined co-testing (HPV-16/18 OR high-grade cytology) achieved <strong>100.0% sensitivity and 100.0% NPV</strong> for high-grade CIN II+ lesions, while HPV-16/18 carried a 10-fold higher risk than non-16/18 types (20.8% vs 2.1%, <em>p</em> = 0.006).</li>
+                        <li><strong>5-Whys Root Cause:</strong> 68.8% (11/16) of insufficient biopsies clustered in women aged &ge;50 years with recessed Type 3 Transformation Zones lacking concurrent Endocervical Curettage (ECC).</li>
+                        <li><strong>Clinical Protocol &amp; Appendices:</strong> Includes a four-rule risk-stratified colposcopy decision matrix, Revised Synoptic Proforma (Appendix A), and UNIMAS Ethics Clearance (Appendix B).</li>
+                    </ul>
+                `
+            },
+            pdfCapDeck: {
+                title: "Capstone Case Study Presentation & Defence (10 Slides)",
+                filename: "Capstone Case Study Presentation_Kendron Koay.pptx",
+                url: "Capstone Case Study Presentation_Kendron Koay.pptx",
+                content: `
+                    <div class="p-3 bg-blue-50 border border-blue-200 rounded-lg text-xs font-mono text-blue-950 mb-3">
+                        <strong>K-YOUTH NURTURE 2026 &bull; INDUSTRY CASE STUDY MINDSET DECK</strong><br>
+                        5 Pillars: Context &bull; Problem &bull; Constraints &bull; Process &bull; Impact
+                    </div>
+                    <p class="text-justify-clinical">Ten-slide visual presentation translating seven years of UNIMAS clinical records into quantified operational value for Sarawak's healthcare network:</p>
+                    <ul class="list-disc list-inside space-y-1.5 text-xs text-justify-clinical">
+                        <li><strong>0% Missed High-Grade CIN II+:</strong> 100.0% sensitivity and NPV via combined co-testing prevents progression to advanced carcinoma (&gt;RM312M national treatment burden).</li>
+                        <li><strong>9.6% &rarr; &lt;5% Inadequacy Target:</strong> Mandatory ECC in women aged &ge;45 years or Type 3 TZ eliminates costly repeat rural travel from Serian, Asajaya, and Simunjan.</li>
+                        <li><strong>27.8% Spared Unnecessary Biopsies:</strong> Safe conservative surveillance when Swede Score &lt; 5 expands clinic capacity for rural Sarawak outreach (Program SUARA &amp; Program ROSE).</li>
                     </ul>
                 `
             }
@@ -1201,7 +1406,6 @@
             modal.classList.remove('flex');
         }
 
-        // Image Lightbox Modal Functions (Scenario 2 Brochure & Customer Profile)
         const imageModal = document.getElementById('image-modal');
         const imageModalSrc = document.getElementById('image-modal-src');
         const imageModalDownload = document.getElementById('image-modal-download');
@@ -1222,7 +1426,6 @@
             imageModal.classList.remove('flex');
         }
 
-        // Close modals on Escape key
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape') {
                 closeModal();
@@ -1230,7 +1433,6 @@
             }
         });
 
-        // Close when clicking outside dialog container
         modal.addEventListener('click', (e) => {
             if (e.target === modal) closeModal();
         });
